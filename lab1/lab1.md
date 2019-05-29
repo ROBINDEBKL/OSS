@@ -15,7 +15,7 @@ photo of Robin ![Robin](photo-2017-12-23@DC.jpg)
 8. license must not be specific to a product
 9. license must not restrict other software
 10. license must be technology-neutral
-These principles serve to protect the interests of the author, the collaborators, and the community as a whole group, and should have optimal productivity for the community.
+These principles serve to protect the interests of the author, the collaborators, and the community as a whole group, and should have optimal productivity for the community. It is a rigorous set of rules and has really impressed me that open source is actually not a simple thing to understand.
 
 ### Step #7
 Eric Steven Raymond has pointed out a long list of aspects that we should consider in order to ask questions in the smart way. I would like to mark some of his ideas here:
@@ -42,4 +42,7 @@ I have completed four out of five problems and here is the screenshot: ![screens
 I used Blocky to solve the problem. The code uses 9 blocks.
 ![screenshot5](Screenshotfrom2019-05-28-01-46-52.png)
 
-###
+#### Step #19
+I checked out the weblink and found this project interesting: https://aosabook.org/en/500L/a-rejection-sampler.html.
+The approach I take when read this project is simple and may not be the effective one. I read the introduction part first to get the gist of the project as a whole. Then I looked at figures and graphs that illustrated something or any text in bold or larger size. By this step I have at least some sort of knowledge about their project. Then I read the text selectively and slowly.
+In this project, they are trying to handle the uncertainty and unpredictability of computing model by using probablities. More specifically, they analyzed the objects with the method of sampling. With the python numpy, they demonstrated that they could handle multinomial distribution of probablity.
