@@ -1,0 +1,25 @@
+local repository
+$ git add <file name>
+$ git add .
+
+log & diff:
+$ git commit -m "<commit message>"
+$ git log
+$ git status [-s]
+$ git diff
+$ git diff --cached
+$ git diff HEAD
+
+reset: go to previous committed version.
+$ git reset <file name>
+$ git reset --hard HEAD
+$ git reset --hard HEAD^
+$ git reset --hard HEAD^^
+$ git reset --hard <ID like "2a17846">
+$ git reflog
+$ git reset --hard <ID in future status>
+$ git reset --hard HEAD@{<number of ID>}
+
+checkout
+$ git log --oneline
+$ git checkout <ID> -- <file name>
