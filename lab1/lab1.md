@@ -38,6 +38,8 @@ I have completed all 8 questions, and here is a screen shot: ![screenshot3](Scre
 #### Step #16
 I have completed four out of five problems and here is the screenshot: ![screenshot4](Screenshotfrom2019-05-28-01-32-57.png)
 
-#### Step #17
+#### Step #18
 I used Blocky to solve the problem. The code uses 9 blocks.
 ![screenshot5](Screenshotfrom2019-05-28-01-46-52.png)
+
+###
