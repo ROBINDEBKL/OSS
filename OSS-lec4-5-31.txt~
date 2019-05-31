@@ -1,0 +1,26 @@
+2019/5/31 Friday [leture 4]
+
+lab 2 is on GIT
+
+$ git log
+Use this command to check the history of messages.
+* each commit has a unique ID
+* author and date are shown
+
+$ git show 5d7d137
+Use this command to check specific commit
+* the hash code is 7-digit
+* this is typically unique for every commit
+
+
+
+
+
+
+
+
+
+
+Question
+* Do I have to enter username and password everytime I push to my github repository?
+* How do I add second language input method?
