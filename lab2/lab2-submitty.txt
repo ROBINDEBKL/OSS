@@ -1,2 +1,2 @@
- https://github.com/ROBINDEBKL/OSS/tree/master/lab2/lab2part1
- 
+https://github.com/ROBINDEBKL/OSS/tree/master/lab2/
+https://github.com/ROBINDEBKL/OSS/tree/master/lab2/lab2.md

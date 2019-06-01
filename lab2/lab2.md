@@ -1,6 +1,6 @@
 # 5/31 Lab 2
 ### Part 1
-With three branches created, the branch structures look like this:
+With three branches created, the branch	 structures look like this:
 ![gitlog](lab2part1/lab2part1sc-gitlog.png)
 ![gitk](lab2part1/lab2part1sc-gitk.png)
 ***
