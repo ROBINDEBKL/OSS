@@ -1,13 +1,12 @@
-total 4700
--rw-rw-r-- 1 robindebkl robindebkl  209488 Jun  7 11:31 gitstats-author2.png
--rw-rw-r-- 1 robindebkl robindebkl  204802 Jun  7 11:31 gitstats-author.png
--rw-r--r-- 1 robindebkl robindebkl    2790 Jun  7 11:22 gitstats-commitsbyyear.png
--rw-r--r-- 1 robindebkl robindebkl    3612 Jun  7 11:22 gitstats-linesofcode.png
--rw-rw-r-- 1 robindebkl robindebkl  435276 Jun  7 11:49 gourcemp4.png
--rw-rw-r-- 1 robindebkl robindebkl  401882 Jun  7 11:50 gourcempg-command0.png
--rw-rw-r-- 1 robindebkl robindebkl  441450 Jun  7 11:50 gourcempg-command.png
--rw-rw-r-- 1 robindebkl robindebkl  286818 Jun  7 11:20 ogranizer-github-page.png
--rw-rw-r-- 1 robindebkl robindebkl 1799170 Jun  7 11:54 organizer-gui.png
--rw-rw-r-- 1 robindebkl robindebkl  350971 Jun  7 11:30 organizer-indexhtml.png
--rw-rw-r-- 1 robindebkl robindebkl  322506 Jun  7 11:20 organizer-overview.png
--rw-rw-r-- 1 robindebkl robindebkl  327630 Jun  7 11:21 organizer-totallines.png
+![figure1](./screenshots/gitstats-author2.png)
+![figure2](./screenshots/gitstats-author.png)
+![figure3](./screenshots/gitstats-commitsbyyear.png)
+![figure4](./screenshots/gitstats-linesofcode.png)
+![figure5](./screenshots/gourcemp4.png)
+![figure6](./screenshots/gourcempg-command0.png)
+![figure7](./screenshots/gourcempg-command.png)
+![figure8](./screenshots/ogranizer-github-page.png)
+![figure9](./screenshots/organizer-gui.png)
+![figure10](./screenshots/organizer-indexhtml.png)
+![figure11](./screenshots/organizer-overview.png)
+![figure12](./screenshots/organizer-totallines.png)
