@@ -35,7 +35,9 @@ Reference links
 
 
 #### Step 7
-https://github.com/ROBINDEBKL/laligastat
+We have made up a project on the field of sports.
+The repo link is https://github.com/ROBINDEBKL/laligastat.
+The README.md file link is https://github.com/ROBINDEBKL/laligastat/blob/master/README.md.
 
 #### Step 8
 | Website   | License Present   | License   |
