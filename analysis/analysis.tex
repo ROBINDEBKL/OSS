@@ -1,0 +1,222 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb,amsmath,amsfonts,amsthm}
+\usepackage{bookmark}
+\usepackage{color,array,graphics}
+\usepackage{caption}
+\usepackage{courier}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[latin1]{inputenc}
+\usepackage{multicol}
+\usepackage{ulem}
+\usepackage{upquote,textcomp}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\definecolor{mGreen}{rgb}{0,0.6,0}
+\definecolor{mGray}{rgb}{0.5,0.5,0.5}
+\definecolor{mPurple}{rgb}{0.58,0,0.82}
+\definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{CStyle}{
+  backgroundcolor=\color{backgroundColour},   
+  commentstyle=\color{mGreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{mGray},
+  stringstyle=\color{mPurple},
+  basicstyle=\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2,
+  language=C
+}
+\newcommand{\vect}[1]{{\bf #1}}                 %for bold chars
+\newcommand{\vecg}[1]{\mbox{\boldmath $ #1 $}}  %for bold greek chars
+\def\imp{\rightarrow}
+\def\math#1{$#1$}
+% \def\OR{\vee}
+% \def\AND{\wedge}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.3cm plus4mm minus3mm}
+\DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
+\DeclareMathSymbol{\Z}{\mathbin}{AMSb}{"5A}
+\DeclareMathSymbol{\R}{\mathbin}{AMSb}{"52}
+\DeclareMathSymbol{\Q}{\mathbin}{AMSb}{"51}
+\DeclareMathSymbol{\I}{\mathbin}{AMSb}{"49}
+\DeclareMathSymbol{\C}{\mathbin}{AMSb}{"43}
+\textwidth  6.8in
+\oddsidemargin -0.3in
+\evensidemargin -0.3in
+\textheight 8.8in
+\topmargin -0.6in
+\pagenumbering{arabic}
+\pagestyle{plain}
+
+\definecolor{orangered}{RGB}{255,69,0}
+\definecolor{darkorange}{RGB}{255,140,0}
+
+\begin{document}
+%\thispagestyle{empty}
+
+\begin{center}
+\Large \color{orangered} \textbf{CSCI 4961 Open Source Software}
+\color{darkorange} \textbf{2019 Summer}
+\end{center}
+
+\begin{center}
+\Huge \textbf{Analysis of Open Source Projects}
+\small \text{Robin Hong, hongz@rpi.edu}
+\end{center}
+
+\text{\newline \newline\ \newline \newline}
+
+\section*{Brief Analysis}
+
+I have picked three projects for my open source projects analysis, based on my personal interests and their influence on me:
+\begin{itemize}
+    \item \textbf{Submitty} from Rensselaer Center for Open Source Software.
+    \item \textbf{gRPC} from Google Open Source.
+    \item \textbf{TensorFlow} from Google Open Source.
+\end{itemize}
+
+\textbf{Submitty} is an open source programming assignment submission system hosted on GitHub, launched by the Department of Computer Science at Rensselaer Polytechnic Institute.
+
+\begin{tabular}{|c|c|p{4in}|} 
+\hline
+Evaluation Factor & Level & Evaluation Data \\
+\hline
+Licensing & 2 & BSD 3-Clause License is used (\href{https://github.com/Submitty/Submitty/blob/master/LICENSE.md}{GitHub license page}).\\
+\hline
+Language & 1 & My preferred language is C, C++, Python, and Java. The project uses C++, Python, and JavaScript extensively.\\
+\hline
+Level of Activity & 2 & It is really active in all quarters of last year.\\
+\hline
+Number of Contributors & 2 & The project has 92 contributors in total.\\
+\hline
+Product Size & 2 & It has much more than 10,000 lines of code.\\
+\hline
+Issue Tracker & 2 & Currently it has 283 open and 1,421 closed issues. Frequent debuggings are observed.\\
+\hline
+New Contributor & 1 & There is only a little bit of evidence of welcome or instructions for new contributors in the front page (\href{https://submitty.org/developer/how_to_contribute}{how to contribute}).\\
+\hline
+Community Norms & 0 & There is no evidence of documented and easy to locate statement of community norms that is welcoming and inclusive.\\
+\hline
+User Base & 2 & \textbf{Submitty} is heavily used in \href{https://www.rpi.edu}{RPI} and is definitely considered to have an active and engaged user base.\\
+\hline
+Total Score & 14 & \\
+\hline
+\end{tabular}
+
+\textbf{gRPC} is a modern RPC framework that can run in any environment. It can efficiently connect services in and across data centers with pluggable support for load balancing, tracing, health checking and authentication. Currently it is used for communication in internal production, on Google Cloud Platform, and in public-facing APIs.
+
+\begin{tabular}{|c|c|p{4in}|} 
+\hline
+Evaluation Factor & Level & Evaluation Data \\
+\hline
+Licensing & 2 & Apache License 2.0 is used (\href{https://github.com/grpc/grpc/blob/master/LICENSE}{GitHub license page}).\\
+\hline
+Language & 2 & The project has mostly C code, which is my favorite.\\
+\hline
+Level of Activity & 2 & It is really active in the recent 12 months.\\
+\hline
+Number of Contributors & 2 & It has 465 contributors in total.\\
+\hline
+Product Size & 2 & It has much more than 100,000 lines of code.\\
+\hline
+Issue Tracker & 2 & It has 1,024 open and 6,220 closed issues. There is 6 issues reported in recent 3 days.\\
+\hline
+New Contributor & 2 & There is a welcoming and helpful note on \href{https://github.com/grpc/grpc/blob/master/CONTRIBUTING.md}{how to contribute}.\\
+\hline
+Community Norms & 2 & There is some sort of community norms (\href{https://github.com/grpc/grpc/blob/master/CONCEPTS.md}{concepts} and \href{https://github.com/grpc/grpc/blob/master/TROUBLESHOOTING.md}{troubleshooting guide}).\\
+\hline
+User Base & 2 & \textbf{gRPC} is used among many companies, including Netflix and Cisco.\\
+\hline
+Total Score & 18 & \\
+\hline
+\end{tabular}
+
+\textbf{TensorFlow} is an end-to-end open source platform for machine learning, with a comprehensive  and flexible ecosystem of tools, libraries, and community resources that lets researchers push the state-of-art in ML and gives developers the ability to easily build and deploy ML-powered applications.
+
+\begin{tabular}{|c|c|p{4in}|} 
+\hline
+Evaluation Factor & Level & Evaluation Data \\
+\hline
+Licensing & 2 & Apache-2.0 is used.\\
+\hline
+Language & 2 & It is mostly written in C++.\\
+\hline
+Level of Activity & 2 & It is really active in recent years.\\
+\hline
+Number of Contributors & 2 & It has 2,037 contributors in total and an average of 200 contributors per month.\\
+\hline
+Product Size & 2 & It has 2.5 million lines of code.\\
+\hline
+Issue Tracker & 2 & It has 2,287 open and 16,109 closed issues.\\
+\hline
+New Contributor & 2 & \href{https://www.tensorflow.org/community/contribute}{How to contribute} is a conspicuous place and has welcoming notes and instructions for new contributors.\\
+\hline
+Community Norms & 2 & The \href{https://www.tensorflow.org/community}{community norms} is also clear to see.\\
+\hline
+User Base & 2 & There is a clear evidence of heavy usage around the world.\\
+\hline
+Total Score & 18 & \\
+\hline
+\end{tabular}
+
+\section*{In-Depth Analysis}
+
+Building from the knowledge I have on these three projects, I would like to select \textbf{TensorFlow} for my in-depth analysis. Last semester I was taking a CSCI course, Natural Language Processing, and the library of tensorflow is used extensively in the class, which has impressed me a lot.
+
+TensorFlow's core open source library is designed to help us develop and train machine learning model. My chance of using TensorFlow is programming in Python. Running on my local machine take exceptionally long time to finish, which indicates that there is substantial workload of computing taking place inside TensorFlow.
+
+Actually, TensorFlow has many derivative versions, like TensorFlow.js (JavaScript library for browser and Node.js), TensorFlow Lite (for deploying models on mobile and embedded devices), TensorFlow Extended (end-to-end platform for preparing data, training, validating, and deploying models in large production environments).
+
+Below is my extended analysis table for \textbf{TensorFlow}.
+
+
+\begin{tabular}{|c|c|p{4in}|} 
+\hline
+Evaluation Factor & Level & Evaluation Data \\
+\hline
+Licensing & 2 & \textbf{TensorFlow} uses Apache License 2.0 (\href{https://github.com/tensorflow/tensorflow/blob/master/LICENSE}{GitHub license page}), where commercial use, modification, distribution, and private use are allowed. Unlike copyleft license, it does not require a derivative work of the software or modifications to the original to be distributed using the same license. However, trademark use or liability is not given.\\
+\hline
+Language & 2 & For the statistics of languages, it has 51\% of C++ code, 37\% of Python code, 8\% of HTML code, and 4\% of others. Personally I prefer C++ and Python, and working with project like this type will be ideal: so I give 2 points here.\\
+\hline
+Level of Activity & 2 & It is really active in recent years. More specifically, it has 22,939 commits within 12 months from 901 contributors, and 1,887 commits within 30 days from 206 contributors. It is clear that this project is really prosperous and have been under active development for recent years. One thing worth to mention here is that \textbf{TensorFlow} has the very beginning commit in November, 2015.\\
+\hline
+Number of Contributors & 2 & It has 2,037 contributors in total and an average of 200 contributors per month. Moreover, the trend is that number of contributors is increasing steadily over months.\\
+\hline
+Product Size & 2 & Two years ago, the project only has 887,377 lines of code. Currently, the number stays above 2,297,782. This bulky volume of codes is definitely worth 2 points here.\\
+\hline
+Issue Tracker & 2 & It has 2,287 open and 16,109 closed issues. And in the GitHub page, there is detailed instructions on what to do when a bug is found. \textbf{TensorFlow} is quite considerate in issue tracking.\\
+\hline
+New Contributor & 2 & \href{https://www.tensorflow.org/community/contribute}{How to contribute} is in a conspicuous place and has welcoming notes and instructions for new contributors. Generally speaking, it is a project friendly to new contributors.\\
+\hline
+Community Norms & 2 & The \href{https://www.tensorflow.org/community}{community norms} is also very easy to see. It is divided into three categories: support, forum \& user groups, and contribute. I can find what I want easily following the link. It also supports most media like blog, youtube, or twitter to get us informed.\\
+\hline
+User Base & 2 & There is a clear evidence of heavy usage around the world. Its fields of study include deep learning, neural network, GPU computing, machine learning, and numerical computing.\\
+\hline
+Total Score & 18 & This would be a perfect score.\\
+\hline
+\end{tabular}
+
+Generally, the goal of TensorFlow is to provide handy and useful toolkit for computation in the field of machine learning and artificial intelligence. Lots of models of computing can be practiced by TensorFlow. And as a super huge open source project, it serves as a powerful and competent toolkit for lots of things. Airbus is using TensorFlow to extract information from their satellite images and deliver crucial insights to their clients. Airbnb improves the guest experience by using TensorFlow to classify images and detect objects at scale. Tons of cases can be found with TensorFlow.
+
+There is no way you can dwarf TensorFlow in next few years, where AI technology is supposed to develop quickly. It is appealing to me with its seemingly omnipotent power of computing, but also somewhat daunting to me because it is simply too big and too complicated for an undergraduate student to contribute something.
+
+\end{document}
