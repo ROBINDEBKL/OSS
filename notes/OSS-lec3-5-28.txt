@@ -1,0 +1,94 @@
+2019/5/28 Tuesday [lecture 3]
+Git install git on Ubuntu
+accept the git invitation
+Reading material
+* 1.5 getting started – installing git
+global level configuration
+CODE:
+robindebkl@INCA:~$ git config --global user.name "robindebkl"
+robindebkl@INCA:~$ git config --global user.email robindebkl@outlook.com
+robindebkl@INCA:~$ git config --global --list
+user.name=robindebkl
+user.email=robindebkl@outlook.com
+Generating SSH-key
+* retain the global configuration
+* go to GitHub
+* go to top right corner of your GitHub page
+* go to account → setting → SSH and GPG keys
+* new SSH key
+* on Ubuntu, to generate ssh key: ssh-keygen -t rsa -b 4096 -C “robindebkl@outlook.com”
+* (git bash shell should also works)
+* paste the SSH key in the GitHub page 
+CODE:
+robindebkl@INCA:~$ ssh-keygen -t rsa -b 4096 -C "robindebkl@outlook.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/robindebkl/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/robindebkl/.ssh/id_rsa.
+Your public key has been saved in /home/robindebkl/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:9laHgKJqetFMzKglLccxfZoHFdBBS4c9B2g8DCory/U robindebkl@outlook.com
+The key's randomart image is:
++---[RSA 4096]----+
+|   .oO**o.       |
+|  o.o.Xoo..      |
+|.o.* *o..o.      |
+|oo* *...   . .   |
+|o* =..  S   o .  |
+|+.o.+  . . . .   |
+|..o. E    o      |
+| o.      .       |
+|..               |
++----[SHA256]-----+
+Public key can be shared.
+Private key should be protected.
+Then ssh -T git@github.com
+Create directory at GitHub
+git init
+initialize README.md
+check the status by $git status
+$ git add README.md
+$ git status
+$ git commit
+Write some commit message. Ctrl-x, shift-Y, enter.
+$ git log
+check the working
+$ git rm –cached README.md
+$ git reset (get rid of stage)
+working directory | staging area | git directory
+→ stage files → commit →
+
+create a new repository on the GitHub wensite
+git remote add origin github.com/ROBINDEBKL/exercise1.git
+git remote --verbose
+$ git push –set-upstream origin master
+$ git push -u origin master
+Branch
+$ git branch
+FILE CYCLE
+1. emacs README.md
+2. git commit
+3. git push
+4. git branch
+Branch
+* git branch
+* git status
+* git merge branch_name
+* git checkout branch_name
+* git checkout -b new_switch
+
+GIT INTRO
+clone repository 
+$ git clone git@github.com:wdturner/OSSStory.git
+shared repository
+git enables other configurations
+Integration manager workflow
+Blessed repository – developer public repositories
+integration manager – developer private repositories
+[courtesy of git-scm book]
+Forking
+$ git remote add rcos github “your github”
+
+create a group directory for collaboration
+

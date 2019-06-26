@@ -1,0 +1,66 @@
+2019/6/25 Lecture 11
+
+Test this Friday 6/28
+
+Project pitch slide presentation
+1. Peaceful City project (professor Turner)
+2. Open Book project (Shail)
+   replacement to textbooks & ebooks
+   combination of markdown and latex
+   https://www.github.com/openbook-project/
+3. Git Matched project
+   a dating app for GitHub users
+   speed dating
+4. Open AI Gym project (Jack Garbus)
+   reinforcement learning
+   machine learning algorithm
+   design the simulation
+   gym is the environment
+   multi-agent interaction
+5. Mozilla's Open Source Student network project (Hanna)
+   OSSN is a welcoming community
+   HTML, python, shell
+   17.2 GB on hard drive / 2 hour installation
+   Mozilla IRC
+   RPI Machines Map (Hanna) a RCOS project.
+   mostly in JavaScript
+6. RISC V (James Berry)
+   open source hardware ISA
+   reduced instruction set computer
+7. Folsom Library (FLOM on RCOS)
+   Python
+   grant from library to implement
+8. Shuttle Tracker (Evan)
+   Go, Vue.js, PostgreSQL
+   documentation urgently needed
+9. Magic Voicing (Victor)
+   play chords
+   learn Jazz piano
+   mean stack
+10. NoTex (jputlock)
+    lightweight Tex editor for math and CS students
+    inline TeX rendering
+    C++
+    blessed repository structures
+    built-in model creators?
+11. Forge
+    collaborative design community
+
+https://www.github.com/wtg/shuttletracker
+
+Before the summer break, go through the repository and learn Go/Vue/PostgreSQL.
+brand new experience!
+
+frontend: javascript
+backend: go, postgre
+
+ultimate goal: parking transporation.
+
+stack: bus
+go to database and work on postgre.
+
+GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+
+short term is to get a wiki page.
+
+Documentation!!!!

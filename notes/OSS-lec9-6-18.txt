@@ -1,0 +1,170 @@
+LEC 8 on 6/18 Build System
+
+Albany DevFest 2019 (informal conference, no paper, only proposal)
+analysis report should be PDF 3 to 5 pages long
+Quiz 1 on next Friday
+(samples test is released on CSCI/Resources/SampleQuizzes/Summer2018)
+
+high barrier to contribute to the project ==> make it hard to build the system
+
+maintainer of CMake
+
+overview of build systems
+  makefiles
+  cmake
+
+What is build system?
+  it specifies how to turn source files into useful programs
+      source ====> build system ====> program
+  it organizes code to share among programs
+  its requirements vary by language, tools, and platform
+
+Compile simple
+  $ gcc hi.c -o hi -###
+  $ ccl hi.c -o /tmp/tmp1.o
+  $ collect2 -o hi /tmp/tmp1.o -lgcc ...
+Compile linked file
+  $ gcc hi1.c hello.c -o hi1 -###
+  $ ccl hi1.c -o /tmp/tmp1.o
+  $ ccl hello.c -o /tmp/tmp2.o
+  $ collect2 -o hi1 /tmp/tmp1.o /tmp2.o -lgcc ...
+
+The point here is to share source files and reuse C files.
+
+Build System with Shell Script
+Write build.sh:
+  $ cc hi1.c hello.c -o hi1
+  $ cc hi2.c hello.c -o hi2
+Then, run:
+  $ sh -x build.sh
+
+The above script will reuse the source file but will not reuse the compile output. If we want sharing object files, we need separate linking.
+New build.sh:
+  $ cc -c hello.c -o hello.o
+  $ cc hi1.c hello.c -o hi1
+  $ cc hi2.c hello.o -o hi2
+This way when executing, hello.c will be compiled only once.
+
+2.8 Sharing multiple sources
+Callers of hello() function must use both hello1.o and hello2.o together, but should not have to know that.
+nnn
+2.9 Static libraries
+Create an archive of object files and link executables.
+  $ cc -c hello1.c -o hello1.o
+  $ cc -c hello2.c -o hello2.o
+  $ ar qc libhello.a hello1.o hello2.o
+  $ cc -c hi1.c -o hi1.o
+  $ cc -c hi2.c -o hi2.o
+  $ cc hi1.o libhello.a -o hi1
+  $ cc hi2.o libhello.a -o hi2
+  $ ar t libhello.a
+
+2.10 Shared libraries
+  $ cc -fPIC -c hello1.c -o hello1.o
+  $ cc -fPIC -c hello2.c -o hello2.o
+  $ cc -shared -o libhello.so hello1.o hello2.o
+  $ cc -c hi1.c -o hi1.o
+  $ cc -c hi2.c -o hi2.o
+  $ cc hi1.o libhello.so -o hi1 -W1,-rpath='$ORIGIN'
+  $ cc hi2.o libhello.so -o hi2 -W1,-rpath='$ORIGIN'
+In order to view dependency of executable on shared library:
+  $ readelf -d hi1 | grep NEEDED
+  $ readelf -d hi1 | grep RPATH
+
+2.11 Review of file types
+* source files .c .cpp
+* header files .h .hpp
+* object file .o .obj
+* executable (.exe with Windows)
+* static libraries .a (.lib with MS tools)
+* shared libraries .so .dylib on OSX .dll on Windows
+
+2.12 Build system shell script
+* build.sh always run all commands.
+* no concurrency.
+* no partial builds.
+* no incremental rebuild.
+* no scaling.
+* rarely used in practice.
+
+3.1 Build dependencies
+Visual Studio handles dependencies with its own manager, which is a completely different system.
+The diagram is a directed graph.
+
+3.2 Makefile
+Makefile cannot start each line with space, only tab can be used at the beginning of each line.
+A Makefile expresses build dependencies.
+  $ all: hi1 hi2
+  $ hi1: hi1.o libhello.so
+  $ 	 cc hi1.o libhello.so -o  hi1 -Wl,-rpath='$$ORIGIN'
+  $ hi1.o: hi1.c
+  $ 	 cc -c hi1.c -o hi1.o
+  $ libhello.so: hello1.o hello2.o
+  $	 cc -shared -o libhello.so hello1.o hello2.o
+  $ hello1.o: hello1.c
+  $ 	 cc -fPIC -c hello1.c -o hello1.o
+
+3.3 Run Make Tool
+The make tool checks timestamps, follows dependencies.
+
+3.4 Implicit Dependencies
+Commands:
+  $ grep hello.h *.c
+  $ gcc -MM hello1.c -MT hello1.o
+  $ touch hello.h // change the time on it
+
+3.5 Makefile: implicit dependencies
+
+3.6 Build system: Make
+Features
+* efficient and concurrent builds and rebuild.
+Limitation
+* hard to maintain implicit dependencies
+* platfor and tool specific tables of command
+* need manual rules for install and clean operation
+* not reusable with IDEs like Visual Studio and Xcode
+
+3.7 MSBuild
+
+3.8 Example Build System
+* Make: Canonical dependency-based build system
+* Ninja
+* MSBuild
+* Waf, Scons
+
+4.1 Build system generators
+
+4.2 CMake
+* created by Kitware in 2000 to support cross-platform builds for the insight toolkit.
+* it is generalized incrementally over time.
+* noe de-facto standard for cross-platform C, C++, and Fortran projects.
+
+4.3 CMake Example Code
+  $ cmake_minimum_required(VERSION 3.0)
+  $ project(Hello C)
+  $ add_library(hello SHARED hello1.c hello2.c hello.h)
+  $ add_executable(hi1 hi1.c)
+  $ target_link_libraries(hi1 hello)
+  $ add_executable(hi2 hi2.c)
+  $ target_link_libraries(hi2 hello)
+
+4.4 Running CMake
+Make an out-of-source build directory and run cmake tool.
+  $ mkdir build && cd build
+  $ cmake ../
+Then, we run make:
+  $ make
+Finally it is finished and we can inspect the results.
+
+4.5 CMake-generated Makefiles
+* maintain pristine source with out-of-source builds.
+* display description of each step with progress percentage.
+* provides rules for install and clean operations.
+* handle implicit dependencies automatically.
+* use platform and tool-specific commands.
+
+4.6 CMake GUI
+vVisual Studio compiler
+
+4.8 CMake syntax primer
+* refer to cmake-language(7) manual

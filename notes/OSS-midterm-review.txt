@@ -1,0 +1,59 @@
+CSCI 4961 Open Source Software, 2
++-----------------------------+ 0
+| Quiz 1 on 6/28/2019, Friday | 1
++-----------------------------+ 9
+| Document: master review     | S
+| Date created: 6/25, 6:25 PM | U
+| Last modified: 6/25         | M
+| Purpose: overall review for | M
+|   midterm material and ref! | E
++-----------------------------+ R
+
+Topics:
+  1. intro to open source (5/21)
+  2. git introduction (5/28)
+  3. documentation and community (6/4)
+  4. licensing (6/11)
+  5. build system (6/18)
+
+Concepts in topic 1: intro to open source
+  * 386 BSD -> NetBSD, FreeBSD, OpenBSD
+  * why open source?
+  * why not open source?
+  * cathedral model (commercial world)
+  * bazaar model (linux world)
+  * software management five functions
+Concepts in topic 2: git
+  * git commands
+    * git diff (to see the speciffic local changes to tracked files)
+    * git log --graph --pretty=oneline --abbrev-commit
+    * git diff --cached
+    * git add -u (add only the updated, previously-commited files)
+    * git branch --all
+    * git checkout <branch>
+    * git merge <branch>
+Concepts in topic 3: documentation and community
+  * purpose of documentation
+  * importance of documentation
+  * markdown/latex syntax
+  * literate programming
+  * importance of community
+  * essential tools for running communities
+  * sustainable open source
+  * open/proprietary
+Concepts in topic 4: licensing
+  * open source license
+  * Open Source Initiative
+  * open source definitation (OSD, 10 rules)
+  * fundamentals of intellectual property (IP)
+  * license -> copyright, patent, trademark
+  * copyleft & permissive license
+    * copyleft: General Public License (GPL), Affero GPL (AGPL)
+    * lesser: Eclipse (EPL), Mozilla (MPL), Lesser GPL (LGPL)
+    * permissive: Apache, BSD, MIT
+  * derivative work
+Concepts in topic 5: build system
+  * static/sharing library
+  * make -> Makefile
+  * cmake ../ -> CMakeLists.txt
+

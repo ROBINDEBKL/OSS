@@ -1,0 +1,126 @@
+2019/6/4 Tusday [lecture 5]
+
+lec 1 on 5/21
+  * linux
+  * open source mode
+  * syllabus
+lec 2 on 5/28
+  * git
+lec 3 on 6/4
+  * documentation
+  * community
+
+Documentation
+* Reference
+  * markdown
+  * restructured text
+  * latex
+  * overleaf
+  * literature programming
+  * Dynamic Report Generation in R
+  * blog about Ipython Literate Programming
+* Keys
+  * Purpose
+    * high-level design overview documentation
+    * documentation at the top of a module
+    * documentation for a function/class
+    * embedded comments
+  * Tools
+    * ensure the documents are long-lived
+    * ensure the documents are close to codes
+    * no binary formats for documentation
+* Different type of documentation
+  * wiki
+  * blog
+  * user's manual
+  * program documentation
+  * readme files
+* Documentation formatting
+  * markdown (.md file)
+    +----------+
+    | markdown |
+    +----------+
+    * italic: *xxx*.
+    * bold: **xxx**.
+    * inline link: [rensselaer](https://www.rpi.edu).
+    * inline image: ![nadal](INHZ.png).
+    * footnote: I have more [^1] to say up here. [^1]: I'm speechless.
+    * blockquote: > quote, >> quote.
+    * code: 'int main() { return EXIT_SUCCESS; }'
+    * syntax highlighting: '''css file'''
+    * header: # header1, # header 2.
+    * definition list: : a semantic concept.
+    * abbreviation: *[HTML] : HyperText Markup Language.
+  * reStructuredText (.rst file)
+    +-------------------------+
+    | reStructuredText Primer |
+    +-------------------------+
+    * italic: *text*.
+    * bold: **text**.
+    * backquote: ''text''.
+    * literal block: must be indented, introduced by ending a paragraph with ::
+    * lots of features...
+  * css (briefly scanned)
+  * xml
+  * html5
+  * latex
+  * literate programming
+* Communit participation
+  * quora
+  * reddit
+  * stackoverflow
+  * online mailing list
+
+Community Involvement
+* essential tools for running community
+  * website
+  * developer mailing list
+  * version control
+  * issue tracker
+* essential tools for communication
+  * mail archives
+  * forums
+  * questions and answers as in stackoverflow
+  * blogs, syndication
+  * social networking, microblogging
+  * more
+    - screen casts
+    - youtube/vimeo videos
+    - version control system
+    - management of intellectual property
+> community roles
+  * programmer
+  * documentation writers
+  * translators
+  * website designer
+  * GUI designer
+  * communications people
+> Engage
+  * communicate what you are workin on
+  * acknowledge resources you use and their creators
+  * give back
+  * plan an exit strategy
+  * retire gracefully
+> sustainable open source
+  * reach sustainability
+  * product development
+  * large market share (support, training, customization, search engines)
+  * hardware companies give out free drivers
+  * software companies who utililze open source components
+  * dual licensing model - open source version and proprietary version
+> Non-profit open development
+  * free software foundation
+  * the eclipse foundation
+  * the gnome foundation
+  * the mozilla foundation
+  * the python foundation
+
+POTENTIAL DOCUMENTATION FORMAT
++---------------------+
+| 2019/06/04, Tuesday |
++---------------------+
+| Header of this documents
+> Titles and subtitles
+  * header 1
+    - header 2
+      # header 3

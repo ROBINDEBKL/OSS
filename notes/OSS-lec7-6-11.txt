@@ -1,0 +1,172 @@
+2019/6/11 Tuesday, Lecture 7
+
+* Two weeks from today:
+  * pick up a project
+  * quiz 1
+* 6/21:
+  * open source project analysis slides
+* After July 4th break:
+  * stable team formed
+  * start wor
+
+* Recent schedule:
+  * 6/14 lab on licensing
+  * 6/18 lecture on build systems
+  * 6/21 lab on build systems
+  * 6/21 analysis of an open source project due
+  * 6/25 project pitch slide presentation
+  * 6/28 quiz 1
+
+PaperCall Capital Region GDG Devfest 2019
+
+Linux
+  BSD linux by west coast, UC Berkeley
+  TeX is a typesetting system by Donald Knuth - Stanford
+  USENET newsgroups and communities formed
+
+UNIX Kernel
+  Bill Jolitz(UCB) was developing kernel for i386 under Net/2 (free of the copyright from AT&T) - 386 BSD
+  386 BSD evolved into NetBSD, FreeBSD, OpenBSD
+  Linux Kernel finally evolved into many GNU/Linux distributions
+
+More Open Source Development
+  * Apache (widely used WWW server)
+  * Perl (bioinformatics)
+  * R (origin in AT&T by statistician and data analyst)
+  * Mozilla/Firefox (origin Netscape)
+  * GNOME/KDE
+
+TO-DO list:
+  * get link to chat
+  * plan following two weeks
+  * lecture review
+
+Open Source Initiative
+  Patrick Masson, general manager & dircetor
+  promote & protect open source
+
+look for project with OSI-approved
+  open source ~ organic
+
+-> Open source software is software that can be freely used, changed, and shared in modified or unmodified form by anyone.
+-> Open source software is distributed with an OSI approved license.
+
+Debian Free Software Guidelines
+  Bruce Perens
+Common license
+  * apache license
+  * BSD 3-clause
+  * BSD 2-clause
+  * GNU general public license
+  * MIT license
+  * Mozilla public license
+
+Open source licensing provides permission to
+  * use the software
+  * study the software
+  * modify the software
+  * redistribute the software
+
+software - ownership
+  code
+  content
+  copyright
+  patents (blocking the area of technology)
+  trademarks (shorthand for something)
+
+Interllectual Property
+  * Copyright: form of intellectual property applicable to any expressed representation of a creative work that grants the creator of an original work exclusive rights to its use and istribution, usually for a limited time.
+  * Trademark: a recognizable sign, design, or expression which itentifies products or services of a particular source from those of others.
+  * Patent: a set of exclusive rights granted by a sovereign state to an inventor or assignee for a limited period of time in exchange for detailed public disclosure of an invention.
+
+public domain
+  copyright is supposed to expired
+
+What is a license
+  permission from an authority to own or use something.
+  grant permisison to use something or allow an activity
+
+Copyleft & permissive license
+  Copyleft is a general method for making a profram free, and requiring all modified and extended versions of the program to be free as well.
+  A permissive license prescribes minimal requirements about how the software can be used. Such licenses therefore make no guarantee that future generationsof the software will remain free.
+
+Derivative works
+  tldr legal
+
+Conditions of use
+
+OSEHRA
+
+Licensing
+  foster continued development
+  foster distribution of code
+
+Post Open Source
+  no explicit license == all rights reserved
+
+OSHWA: open source hardware association
+
+Fauxpen Source Software
+
+FOSS > ???
+
+
+
+
+
+
+
+
+
+LEC 7 on 6/11 License
+
+OSI certified and OSI approved license
+
+Open Source license provides permissions to use the software, study/audit the software, modify the software, and redistribute the software.
+
+software - ownership
+  code
+  content
+  copyright
+  patents (blocking the area of technology)
+  trademarks (shorthand for something)
+
+Interllectual Property
+  * Copyright: form of intellectual property applicable to any expressed representation of a creative work that grants the creator of an original work exclusive rights to its use and istribution, usually for a limited time.
+v  * Trademark: a recognizable sign, design, or expression which itentifies products or services of a particular source from those of others.
+  * Patent: a set of exclusive rights granted by a sovereign state to an inventor or assignee for a limited period of time in exchange for detailed public disclosure of an invention.
+
+Terms in a license (OSD)
+  scope
+  duration
+  renewal
+  conditions of use
+  indemnification
+  audit
+  IP protection
+  warranties
+  payment
+  infringement
+
+Copyleft & permissive license
+  Copyleft is a general method for making a profram free, and requiring all modified and extended versions of the program to be free as well.
+  A permissive license prescribes minimal requirements about how the software can be used. Such licenses therefore make no guarantee that future generationsof the software will remain free.
+Copyleft
+  General Public License (GPL)
+  Affero GPL (AGPL)
+Lesser
+  Eclipse (EPL)
+  Mozilla (MPL)
+  Lesser GPL (LGPL)
+Permissive
+  Apache
+  BSD
+  MIT
+
+GNU General Public Licensing
+Hierarchy of GPL flavors from least restrictive to most restrictive:
+1. LGPL - For code libraries licensed under LGPL, you can distribute code that links with the library without making your distribution LGPL provided your code allows for the library code to be replaced in your distribution. Typically, this means linking the LGPL library as a Shared or Dynamic library so that you can replace it without relinking, but there are other options.
+2. GPL - Any code that uses GPL code including coe that is only linked to GPL licensed code, must be released as GPL when "distributed" to another person. In this case distributed has the normal meaning -- i.e., you give or sell or otherwise allow someone else to have your code.
+3. AGPL - Any code that uses AGPL code including code that is only linked to AGPL licensed code, must be released as AGPL when "distributed" to another person. For AGPL code, the meaning of distributed is broadened to include cases where you give them access to your code on a network node without them actually running the code themselves. This closes the cloud loophole of the GPL.
+
+Derivative work: work based upon one or more preexisting works.
