@@ -1,0 +1,120 @@
+lecture 13 on 2019/7/9 Monday
+
+Virtualization and Containers
+
+about project
+* define milestone clearly
+* work towards it
+
+Lots of reading materials
+* oracle virtualbox VM
+* using virtual machines and docker
+
+Virtualization: virtual computer hardware platforms, storage devices, and computer network resources.
+
+1. Virtual Machines: software to allow a piece of hardware to run multiple operating system images at the same time.
+   e.g. VirtualBox
+2. Containers: a lightweight, stand-alone, executable package of a piece of software that includes everything needed to run it.
+   e.g. Docker
+
+Virtual machine:
+* a software layer (hypervisor) emulates the underlying hardware
+* an additional operating system runs on the virtual hardware
+* user interacts with the virtualization layer as if it were the underlying machine
+
+Advantages of virtual machine:
+* shared resources on memory, disk, network bandwidth
+* better resource utilization
+* running in isolated environments (better security)
+* the same hardware can run multiple operating systems
+* entire environment can be distributed
+  * less time on setting up environments
+  * less confusion about versions or compatibility
+* machine states can be checkpointed
+  * rapid return of services when hardware goes down
+  * can be migrated to a more or less powerful machines as needed
+
+Disadvantages of virtual machine:
+* poor planning and multiple VMs can drown a machine
+* the same hardware canc run multiple operating systems
+  * may require multiple licenses
+  * a problem with one set of hardware can affect hundreds of VMs
+* checkpoint files can be huge
+* an entire environment can be distributed
+  * Guest OS <-> hypervisor <-> native OS
+    performance is impacted
+  * entire guest environment
+
+Virtualization and the Cloud
+* easily add VMs or migrate to more/less powerful VMs
+* performance can be different on
+  * different systems
+  * different clusters
+  * different locations
+
+Example: VA scheduling competition
+* scheduler for Electronic Health Recorder (EHR) system
+* contestants were each given a VM with access to nominal patient and a version of a running VISTA EHR
+
+|^_^_^_V_i_r_t_u_a_l_B_o_x_^_^_^|
+VirtualBox is supported by Oracle.
+Licensing: GNU general public license (GPL) version 2
+source: svn co https://www.virtualbox.org/svn/vbox/trunk vbox
+Contributing information: contributor's agreement (CA) or MIT license.
+Running on: Windows, Linux, Macintosh, and Solaris, ...
+Licensing: VirtualBox is open source, but you will need permission for any guest operating system.
+  	   Windows requries appropriate licensing.
+
+* The image can be launched using virtualbox program.
+  * it gives a windows where the entire guest operating system can be accessed.
+* allow you to stop and checkpoint (save) the current state
+* be careful provisioning the image:
+  * trade-off between image capabilities and VM compactness
+  * changing size is hard
+
+Container
+A container image is a lightweight, stand-alone, executable package of a piece of software that includes everything needed to run it: code, runtime, system tools, system libraries, and settings.
+Abstraction is to the appilcation layer instead of the hardware layer.
+* The application layer interacts directly with a Container layer.
+  * no guest OS layer
+  * containers share the OS kernel
+* container are stateless and use the existing system resources to store data and state
+
+Advantages of container:
+* solve the issues of VMs:
+  1. large image sizes
+  2. high latency
+  3. reduced performance
+* by linking directly to the host kernel
+
+Disadvantages of container:
+* some are built from the bottom up, therefore you need to install/configure everything you want to use in your container.
+
++--------+
+| Docker |
++--------+
+
+(lab on Friday is on Docker, must walk through Docker tutorial ahead of time)
+
+Spawn a container by running an image:
+  $ docker run -it docker/whalesay
+  $ docker ps
+    ---> telling what images are currently running
+
+You can create new images by:
+1. create a DockerFile to define your image
+2. run a docker build to turn your configuration into an image
+3. run just like a pre-canned image
+4. once built, it will appear when you run
+   $ docker images
+5. altenatively, you can use yaml file to define multiple images that work together to create a system
+
+Some commands:
+  $ docker
+  $ docker container --help
+  $ docker --version
+  $ docker container ls --all
+
+At the end of the class, professor went through the tutorials from step 1 to 3.
+
+Commit 3 hours on INCA by Wednesday.
