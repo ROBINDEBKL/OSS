@@ -1,0 +1,51 @@
+OSS lecture 15 on 7/16, Monday
+
+lab 6 example 2 solved:rocketchat version problem on Mongo
+TOPIC: open source in scientific computation
+
+page 2: learning objectives
+page 3: reading list (2 link)
+    sagemath
+    pymunk (first page)
+page 4: two axes
+    heavy lifting backend computation
+    higher-level language wrappers for rapid development
+page 5: backend computations
+    usually written in C, C++, Fortran
+    use extensive well developed/researched library packages
+    (access to the repository)
+    have experts in specific discipline
+    will have support for parallelism
+page 6: backend computation
+    test the algorithm! before the full fledged implementation.
+    multidimensional array and double precision used extensively.
+    https://open surg sim
+    https://Eigen is a C++ template library for linear algebra
+    https://ITK: insight segmentation and registration toolkit
+    3d slicer: open source software platform for medical image informatics, image processing, and three-dimensional visualization that built on ITK.
+page 7: applications
+    genomics and drugs simulation
+    image processing applications
+page 8:
+page 9: GLPK (for linear programming)
+page 10: VTK
+    VLSI design: spice (circuit simulation)
+page 11: Python
+    pypy mplotlib cpython numpy pygame python notebook
+    networkx - graph/network manipulations
+    biopython
+page 12: Other language
+    Julia - high-performance numerical and scientific computing
+    R - statistical computing data science
+    Java - cytospace
+page 13: go into sagemath.org
+    open source alternative to Maple and Mathematica
+    output-console.pdf
+    cocalc for business model
+
+warm exercise 1
+    pygame @ nerdparadise
+warm exercise 2
+    angrybird for python
+
+early release
