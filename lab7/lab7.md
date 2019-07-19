@@ -367,13 +367,13 @@ def generate_graph(words):
 
 def words_graph():
     """Return the words example graph from the Stanford GraphBase"""
-    fh = gzip.open('words4_dat.txt.gz', 'r')
+    fh = gzip.open('words_dat.txt.gz', 'r')
     words = set()
     for line in fh.readlines():
         line = line.decode()
         if line.startswith('*'):
             continue
-        w = str(line[0:4])
+        w = str(line[0:5])
         words.add(w)
     return generate_graph(words)
 
@@ -385,12 +385,12 @@ if __name__ == '__main__':
     print("Graph has %d nodes with %d edges"
           % (nx.number_of_nodes(G), nx.number_of_edges(G)))
     print("%d connected components" % nx.number_connected_components(G))
-
-    for (source, target) in [('cold', 'warm'),
-                             ('love', 'hate'),
-                             ('good', 'evil'),
-                             ('pear', 'beef'),
-                             ('make', 'take')]:
+    for (source, target) in [('chaos', 'order'),
+                             ('nodes', 'graph'),
+                             ('moron', 'smart'),
+                             ('flies', 'swims'),
+                             ('mango', 'peach'),
+                             ('pound', 'marks')]:
         print("Shortest path between %s and %s is" % (source, target))
         try:
             sp = nx.shortest_path(G, source, target)
@@ -403,33 +403,44 @@ if __name__ == '__main__':
 The running results are:
 
 ```
-Loaded words_dat.txt containing 2174 five-letter English words.
+Loaded words_dat.txt containing 5757 five-letter English words.
 Two words are connected if they differ in one letter.
-Graph has 2174 nodes with 37895 edges
-7 connected components
-Shortest path between cold and warm is
-cold
-clad
-lard
-dram
-warm
-Shortest path between love and hate is
-love
-aloe
-late
-hate
-Shortest path between good and evil is
-good
-doge
-dove
-dive
-evil
-Shortest path between pear and beef is
-pear
-fare
-reef
-beef
-Shortest path between make and take is
-make
-take
+Graph has 5757 nodes with 112278 edges
+16 connected components
+Shortest path between chaos and order is
+chaos
+echos
+chore
+coder
+order
+Shortest path between nodes and graph is
+nodes
+shoed
+hades
+heaps
+phage
+graph
+Shortest path between moron and smart is
+moron
+moors
+morts
+smart
+Shortest path between flies and swims is
+flies
+slime
+semis
+swims
+Shortest path between mango and peach is
+mango
+conga
+capon
+poach
+peach
+Shortest path between pound and marks is
+pound
+sound
+modus
+drums
+mrads
+marks
 ```
