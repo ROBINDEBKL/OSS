@@ -1,0 +1,64 @@
+lecture on 7/23, Statiscal Computation and Open Source
+
+Debate over MongoDB / presentation on Friday and next Tuesday
+
+AGPL: composite open source
+change the definition of OSI license spirit.
+open to redistribution/modification
+AWS/...
+OSI 9: license must not restrict other software
+Users may turn to other cloud services.
+SSPL (for public services, either pay license money or release the stack)
+vagueness in SSPL (server side public license)
+AWS uses DocumentDB (based on old version of MongoDB)
+MongoDB is extremely well-known.
+COMPLEX ISSUE: making profit
+
+PRO OPINIONS:
+1. protect the OS community from the abuse from cloud service vendor
+2. make more money to invest into 
+   The database software company reported an adjusted loss of 22 cents a share on revenue of $89.4 million.
+
+
++----------------------------------------+
+| Open Source in Statistical Computation |
++----------------------------------------+
+
+Computational paradigms: Map-Reduce (Hadoop - Apache 2.0), cloud storage, and data storage technology.
+Story@NY cancer statistics (lung cancer, radioactive scan)
+Data needs to be analyzed before further computation.
+Some computational principles involve statistical computation (monte carlo)
+
+COmputational languages for statistical computing
+SPSS, SAS -> proprietary
+R (primarily GPL 2), RStudio (AGPL v3)
+SciPy (BSD 3-clause), Panda (BSD)
+
+R and RStudio
+* open source
+* lots of math and statistical packages available
+* integrated IDE
+* plotting package
+* a large number of data sets available@R
+* literate programming - Shiny
+Drawback
+* new programming language and syntax
+* all data are stored in memory
+* new strategy has to be adopted if the data does not fit the memory
+* R is not a general purpose programming language
+
+Data Science Question
+* level 1
+  * develop expectation
+  * collect data
+  * match expectations with data
+* level 2
+  * stating the question
+  * exploratory data analytics
+  * model building
+  * interpret
+  * communicate
+
+Caveat
+Tuckey's quotation
+
