@@ -1,0 +1,6 @@
+lab [18] on Friday, 7/26
+
+project interim report: No.7
+7/26 lab on statistical computing
+  part 5 is no-op
+  part 1 is also no-op (read in through material)

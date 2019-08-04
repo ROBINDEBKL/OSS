@@ -1,0 +1,26 @@
+lecture 19 on 2019, 7/30 (Tuesday)
+
+lecture on TensorFlow + 12 interim reports
+
+TensorFlow Guide (online website)
+TensorFlow is an end-to-end open source platform for machine learning. It is a high performance numerical computation tool. It has strong supports for deep learning and machine learning. It is widely used around the world.
+TensorFlow is permissively licensed under Apache-2.0.
+It is a true open source project.
+
+***************Basics***************
+Installations
+* virtual environment
+* native pip
+* docker
+  docker run -it -p 8888:8888 tensorflow/tensorflow
+Practice on Docker
+  use python2.7
+  sess = tensorflow.Session( ... )
+TensorFlow has construction phase and execution phase.
+Graph for computation.
+
+Deep learning
+* similar to biological nervous system
+* train artificial neural network to transofrm an input into a desired output
+
+Neural Network
