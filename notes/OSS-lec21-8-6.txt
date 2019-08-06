@@ -1,0 +1,103 @@
+lecture 21 on Tuesday 8/6
+
+* next Friday 4pm should be the final deadline for project.
+* today is on testing and continuous integration.
+* On Friday there is quiz2.
+* can take a look on the lab of testing.
+
++-------------------+
+|      TESTING      |
++-------------------+
+| 2019/8/6, Tuesday |
++-------------------+
+
+testing and continuous integration
+* reading material
+  * unittest introduction
+  * docktest introduction
+  (python environment)
+* testing
+  * testing of system
+  * testing of code
+* purpose
+  * software quality control / software quality assurance
+  * validation
+  * verification - specification is implemented
+  * avoid debugging
+Testing of code
+  * black box
+  * gray box
+  * white box (code coverage)
+Types of tests
+  * smoke test - non-extensive, most crucial functions of a program work
+  * functional test - done by QA to test functionality
+  * unit test
+  * regression test - change in code does not affect other parts
+Why unit test
+  * increase developer confidence
+  * avoid regression
+  * encourage maximal modularity and minimal inteface
+When unit test
+  * always write tests first
+  * before and after refactoring
+  * before debugging
+Terminology
+  * error
+  * fault is manifestation of error in the code
+  * failure is incorrrect output behavior that is caused by executing a fault
+  * testing ===> discover failures
+fault -> hiding in rarely executed portions of code
+      -> full code/branch coverage is virtually impossible for large project
+looking for fault!
+example of gcd(a, b) program (edge cases, specs)
+test coverage
+  * path
+  * loops and conditionals
+  * statement coverage
+  * branch coverage (hard to fully covered)
+  * condition coverage
+Control Flow Graph (CFG)
+example of binary search (input/output specs)
+Language supported for testing
+  * ctest
+  * PyUnit, unittest
+  * JUnit
+example of unittest in Python
+
++-------------------+
+|    INTEGRATION    |
++-------------------+
+| 2019/8/6, Tuesday |
++-------------------+
+
+Reading material: ctest
+Integration
+  * system integration
+  * hardware integration
+  * software integration
+why? cascade of interdependencies.
+types of integration
+  * phased integration
+  * incremental integration
+Benefits of incremental
+  * errors easier to isolate, find, and fix
+  * system is always in a relatively working state
+Drawbacks of incremental
+  * stub!
+  * with many developers, incremental integration may be "big-bang" integration
+types of integration
+  * top-down integration
+  * bottom-up integration
+  * sandwich integration: connect top level UI with crucial bottom-level classes (add middle layers later as needed)
+  * continuous integration: maintain a single source repository (automate the build, make your build self testing, everyone commits to mail line everyday)
+daily build
+automated test
+mock object
+software support
+  * cmake with ctest
+  * travis ci - github dual license
+  * jenkins ci open source
+  * circle ci
+vtk.org - look for info in dashboard
+  * continuous integration
+  * continuous build
