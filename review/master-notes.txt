@@ -1,0 +1,1132 @@
+local repository
+$ git add <file name>
+$ git add .
+
+log & diff:
+$ git commit -m "<commit message>"
+$ git log
+$ git status [-s]
+$ git diff
+$ git diff --cached
+$ git diff HEAD
+
+reset: go to previous committed version.
+$ git reset <file name>
+$ git reset --hard HEAD
+$ git reset --hard HEAD^
+$ git reset --hard HEAD^^
+$ git reset --hard <ID like "2a17846">
+$ git reflog
+$ git reset --hard <ID in future status>
+$ git reset --hard HEAD@{<number of ID>}
+
+checkout
+$ git log --oneline
+$ git checkout <ID> -- <file name>
+2019/5/28 Tuesday [lecture 3]
+Git install git on Ubuntu
+accept the git invitation
+Reading material
+* 1.5 getting started – installing git
+global level configuration
+CODE:
+robindebkl@INCA:~$ git config --global user.name "robindebkl"
+robindebkl@INCA:~$ git config --global user.email robindebkl@outlook.com
+robindebkl@INCA:~$ git config --global --list
+user.name=robindebkl
+user.email=robindebkl@outlook.com
+Generating SSH-key
+* retain the global configuration
+* go to GitHub
+* go to top right corner of your GitHub page
+* go to account → setting → SSH and GPG keys
+* new SSH key
+* on Ubuntu, to generate ssh key: ssh-keygen -t rsa -b 4096 -C “robindebkl@outlook.com”
+* (git bash shell should also works)
+* paste the SSH key in the GitHub page 
+CODE:
+robindebkl@INCA:~$ ssh-keygen -t rsa -b 4096 -C "robindebkl@outlook.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/robindebkl/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/robindebkl/.ssh/id_rsa.
+Your public key has been saved in /home/robindebkl/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:9laHgKJqetFMzKglLccxfZoHFdBBS4c9B2g8DCory/U robindebkl@outlook.com
+The key's randomart image is:
++---[RSA 4096]----+
+|   .oO**o.       |
+|  o.o.Xoo..      |
+|.o.* *o..o.      |
+|oo* *...   . .   |
+|o* =..  S   o .  |
+|+.o.+  . . . .   |
+|..o. E    o      |
+| o.      .       |
+|..               |
++----[SHA256]-----+
+Public key can be shared.
+Private key should be protected.
+Then ssh -T git@github.com
+Create directory at GitHub
+git init
+initialize README.md
+check the status by $git status
+$ git add README.md
+$ git status
+$ git commit
+Write some commit message. Ctrl-x, shift-Y, enter.
+$ git log
+check the working
+$ git rm –cached README.md
+$ git reset (get rid of stage)
+working directory | staging area | git directory
+→ stage files → commit →
+
+create a new repository on the GitHub wensite
+git remote add origin github.com/ROBINDEBKL/exercise1.git
+git remote --verbose
+$ git push –set-upstream origin master
+$ git push -u origin master
+Branch
+$ git branch
+FILE CYCLE
+1. emacs README.md
+2. git commit
+3. git push
+4. git branch
+Branch
+* git branch
+* git status
+* git merge branch_name
+* git checkout branch_name
+* git checkout -b new_switch
+
+GIT INTRO
+clone repository 
+$ git clone git@github.com:wdturner/OSSStory.git
+shared repository
+git enables other configurations
+Integration manager workflow
+Blessed repository – developer public repositories
+integration manager – developer private repositories
+[courtesy of git-scm book]
+Forking
+$ git remote add rcos github “your github”
+
+create a group directory for collaboration
+
+2019/5/31 Friday [leture 4]
+
+lab 2 is on GIT
+
+$ git log
+Use this command to check the history of messages.
+* each commit has a unique ID
+* author and date are shown
+
+$ git show 5d7d137
+Use this command to check specific commit
+* the hash code is 7-digit
+* this is typically unique for every commit
+
+
+
+
+
+
+
+
+
+
+Question
+* Do I have to enter username and password everytime I push to my github repository?
+  - use ssh instead of https
+* How do I add second language input method?
+  - 
+* How do I set python3.6 to default?
+  - 
+* How do I submit the link to my repository? Can it be private?
+  - must be public
+* What will happen if I modified in $ branch jupiter but push to $ remote push origin master?
+  - use merge to resolve conflicts
+
+
+I can regret about commit!
+2019/6/4 Tusday [lecture 5]
+
+lec 1 on 5/21
+  * linux
+  * open source mode
+  * syllabus
+lec 2 on 5/28
+  * git
+lec 3 on 6/4
+  * documentation
+  * community
+
+Documentation
+* Reference
+  * markdown
+  * restructured text
+  * latex
+  * overleaf
+  * literature programming
+  * Dynamic Report Generation in R
+  * blog about Ipython Literate Programming
+* Keys
+  * Purpose
+    * high-level design overview documentation
+    * documentation at the top of a module
+    * documentation for a function/class
+    * embedded comments
+  * Tools
+    * ensure the documents are long-lived
+    * ensure the documents are close to codes
+    * no binary formats for documentation
+* Different type of documentation
+  * wiki
+  * blog
+  * user's manual
+  * program documentation
+  * readme files
+* Documentation formatting
+  * markdown (.md file)
+    +----------+
+    | markdown |
+    +----------+
+    * italic: *xxx*.
+    * bold: **xxx**.
+    * inline link: [rensselaer](https://www.rpi.edu).
+    * inline image: ![nadal](INHZ.png).
+    * footnote: I have more [^1] to say up here. [^1]: I'm speechless.
+    * blockquote: > quote, >> quote.
+    * code: 'int main() { return EXIT_SUCCESS; }'
+    * syntax highlighting: '''css file'''
+    * header: # header1, # header 2.
+    * definition list: : a semantic concept.
+    * abbreviation: *[HTML] : HyperText Markup Language.
+  * reStructuredText (.rst file)
+    +-------------------------+
+    | reStructuredText Primer |
+    +-------------------------+
+    * italic: *text*.
+    * bold: **text**.
+    * backquote: ''text''.
+    * literal block: must be indented, introduced by ending a paragraph with ::
+    * lots of features...
+  * css (briefly scanned)
+  * xml
+  * html5
+  * latex
+  * literate programming
+* Communit participation
+  * quora
+  * reddit
+  * stackoverflow
+  * online mailing list
+
+Community Involvement
+* essential tools for running community
+  * website
+  * developer mailing list
+  * version control
+  * issue tracker
+* essential tools for communication
+  * mail archives
+  * forums
+  * questions and answers as in stackoverflow
+  * blogs, syndication
+  * social networking, microblogging
+  * more
+    - screen casts
+    - youtube/vimeo videos
+    - version control system
+    - management of intellectual property
+> community roles
+  * programmer
+  * documentation writers
+  * translators
+  * website designer
+  * GUI designer
+  * communications people
+> Engage
+  * communicate what you are workin on
+  * acknowledge resources you use and their creators
+  * give back
+  * plan an exit strategy
+  * retire gracefully
+> sustainable open source
+  * reach sustainability
+  * product development
+  * large market share (support, training, customization, search engines)
+  * hardware companies give out free drivers
+  * software companies who utililze open source components
+  * dual licensing model - open source version and proprietary version
+> Non-profit open development
+  * free software foundation
+  * the eclipse foundation
+  * the gnome foundation
+  * the mozilla foundation
+  * the python foundation
+
+POTENTIAL DOCUMENTATION FORMAT
++---------------------+
+| 2019/06/04, Tuesday |
++---------------------+
+| Header of this documents
+> Titles and subtitles
+  * header 1
+    - header 2
+      # header 3
+2019/6/11 Tuesday, Lecture 7
+
+* Two weeks from today:
+  * pick up a project
+  * quiz 1
+* 6/21:
+  * open source project analysis slides
+* After July 4th break:
+  * stable team formed
+  * start wor
+
+* Recent schedule:
+  * 6/14 lab on licensing
+  * 6/18 lecture on build systems
+  * 6/21 lab on build systems
+  * 6/21 analysis of an open source project due
+  * 6/25 project pitch slide presentation
+  * 6/28 quiz 1
+
+PaperCall Capital Region GDG Devfest 2019
+
+Linux
+  BSD linux by west coast, UC Berkeley
+  TeX is a typesetting system by Donald Knuth - Stanford
+  USENET newsgroups and communities formed
+
+UNIX Kernel
+  Bill Jolitz(UCB) was developing kernel for i386 under Net/2 (free of the copyright from AT&T) - 386 BSD
+  386 BSD evolved into NetBSD, FreeBSD, OpenBSD
+  Linux Kernel finally evolved into many GNU/Linux distributions
+
+More Open Source Development
+  * Apache (widely used WWW server)
+  * Perl (bioinformatics)
+  * R (origin in AT&T by statistician and data analyst)
+  * Mozilla/Firefox (origin Netscape)
+  * GNOME/KDE
+
+TO-DO list:
+  * get link to chat
+  * plan following two weeks
+  * lecture review
+
+Open Source Initiative
+  Patrick Masson, general manager & dircetor
+  promote & protect open source
+
+look for project with OSI-approved
+  open source ~ organic
+
+-> Open source software is software that can be freely used, changed, and shared in modified or unmodified form by anyone.
+-> Open source software is distributed with an OSI approved license.
+
+Debian Free Software Guidelines
+  Bruce Perens
+Common license
+  * apache license
+  * BSD 3-clause
+  * BSD 2-clause
+  * GNU general public license
+  * MIT license
+  * Mozilla public license
+
+Open source licensing provides permission to
+  * use the software
+  * study the software
+  * modify the software
+  * redistribute the software
+
+software - ownership
+  code
+  content
+  copyright
+  patents (blocking the area of technology)
+  trademarks (shorthand for something)
+
+Interllectual Property
+  * Copyright: form of intellectual property applicable to any expressed representation of a creative work that grants the creator of an original work exclusive rights to its use and istribution, usually for a limited time.
+  * Trademark: a recognizable sign, design, or expression which itentifies products or services of a particular source from those of others.
+  * Patent: a set of exclusive rights granted by a sovereign state to an inventor or assignee for a limited period of time in exchange for detailed public disclosure of an invention.
+
+public domain
+  copyright is supposed to expired
+
+What is a license
+  permission from an authority to own or use something.
+  grant permisison to use something or allow an activity
+
+Copyleft & permissive license
+  Copyleft is a general method for making a profram free, and requiring all modified and extended versions of the program to be free as well.
+  A permissive license prescribes minimal requirements about how the software can be used. Such licenses therefore make no guarantee that future generationsof the software will remain free.
+
+Derivative works
+  tldr legal
+
+Conditions of use
+
+OSEHRA
+
+Licensing
+  foster continued development
+  foster distribution of code
+
+Post Open Source
+  no explicit license == all rights reserved
+
+OSHWA: open source hardware association
+
+Fauxpen Source Software
+
+FOSS > ???
+
+
+
+
+
+
+
+
+
+LEC 7 on 6/11 License
+
+OSI certified and OSI approved license
+
+Open Source license provides permissions to use the software, study/audit the software, modify the software, and redistribute the software.
+
+software - ownership
+  code
+  content
+  copyright
+  patents (blocking the area of technology)
+  trademarks (shorthand for something)
+
+Interllectual Property
+  * Copyright: form of intellectual property applicable to any expressed representation of a creative work that grants the creator of an original work exclusive rights to its use and istribution, usually for a limited time.
+v  * Trademark: a recognizable sign, design, or expression which itentifies products or services of a particular source from those of others.
+  * Patent: a set of exclusive rights granted by a sovereign state to an inventor or assignee for a limited period of time in exchange for detailed public disclosure of an invention.
+
+Terms in a license (OSD)
+  scope
+  duration
+  renewal
+  conditions of use
+  indemnification
+  audit
+  IP protection
+  warranties
+  payment
+  infringement
+
+Copyleft & permissive license
+  Copyleft is a general method for making a profram free, and requiring all modified and extended versions of the program to be free as well.
+  A permissive license prescribes minimal requirements about how the software can be used. Such licenses therefore make no guarantee that future generationsof the software will remain free.
+Copyleft
+  General Public License (GPL)
+  Affero GPL (AGPL)
+Lesser
+  Eclipse (EPL)
+  Mozilla (MPL)
+  Lesser GPL (LGPL)
+Permissive
+  Apache
+  BSD
+  MIT
+
+GNU General Public Licensing
+Hierarchy of GPL flavors from least restrictive to most restrictive:
+1. LGPL - For code libraries licensed under LGPL, you can distribute code that links with the library without making your distribution LGPL provided your code allows for the library code to be replaced in your distribution. Typically, this means linking the LGPL library as a Shared or Dynamic library so that you can replace it without relinking, but there are other options.
+2. GPL - Any code that uses GPL code including coe that is only linked to GPL licensed code, must be released as GPL when "distributed" to another person. In this case distributed has the normal meaning -- i.e., you give or sell or otherwise allow someone else to have your code.
+3. AGPL - Any code that uses AGPL code including code that is only linked to AGPL licensed code, must be released as AGPL when "distributed" to another person. For AGPL code, the meaning of distributed is broadened to include cases where you give them access to your code on a network node without them actually running the code themselves. This closes the cloud loophole of the GPL.
+
+Derivative work: work based upon one or more preexisting works.
+2019/6/14 lecture 8
+
+LAB ON LICENSING
+
+Refer to ~/Assignments/AnalysisHomework.md for rubric.
+There is sample exams for quiz on 6/28, Friday.
+LEC 8 on 6/18 Build System
+
+Albany DevFest 2019 (informal conference, no paper, only proposal)
+analysis report should be PDF 3 to 5 pages long
+Quiz 1 on next Friday
+(samples test is released on CSCI/Resources/SampleQuizzes/Summer2018)
+
+high barrier to contribute to the project ==> make it hard to build the system
+
+maintainer of CMake
+
+overview of build systems
+  makefiles
+  cmake
+
+What is build system?
+  it specifies how to turn source files into useful programs
+      source ====> build system ====> program
+  it organizes code to share among programs
+  its requirements vary by language, tools, and platform
+
+Compile simple
+  $ gcc hi.c -o hi -###
+  $ ccl hi.c -o /tmp/tmp1.o
+  $ collect2 -o hi /tmp/tmp1.o -lgcc ...
+Compile linked file
+  $ gcc hi1.c hello.c -o hi1 -###
+  $ ccl hi1.c -o /tmp/tmp1.o
+  $ ccl hello.c -o /tmp/tmp2.o
+  $ collect2 -o hi1 /tmp/tmp1.o /tmp2.o -lgcc ...
+
+The point here is to share source files and reuse C files.
+
+Build System with Shell Script
+Write build.sh:
+  $ cc hi1.c hello.c -o hi1
+  $ cc hi2.c hello.c -o hi2
+Then, run:
+  $ sh -x build.sh
+
+The above script will reuse the source file but will not reuse the compile output. If we want sharing object files, we need separate linking.
+New build.sh:
+  $ cc -c hello.c -o hello.o
+  $ cc hi1.c hello.c -o hi1
+  $ cc hi2.c hello.o -o hi2
+This way when executing, hello.c will be compiled only once.
+
+2.8 Sharing multiple sources
+Callers of hello() function must use both hello1.o and hello2.o together, but should not have to know that.
+nnn
+2.9 Static libraries
+Create an archive of object files and link executables.
+  $ cc -c hello1.c -o hello1.o
+  $ cc -c hello2.c -o hello2.o
+  $ ar qc libhello.a hello1.o hello2.o
+  $ cc -c hi1.c -o hi1.o
+  $ cc -c hi2.c -o hi2.o
+  $ cc hi1.o libhello.a -o hi1
+  $ cc hi2.o libhello.a -o hi2
+  $ ar t libhello.a
+
+2.10 Shared libraries
+  $ cc -fPIC -c hello1.c -o hello1.o
+  $ cc -fPIC -c hello2.c -o hello2.o
+  $ cc -shared -o libhello.so hello1.o hello2.o
+  $ cc -c hi1.c -o hi1.o
+  $ cc -c hi2.c -o hi2.o
+  $ cc hi1.o libhello.so -o hi1 -W1,-rpath='$ORIGIN'
+  $ cc hi2.o libhello.so -o hi2 -W1,-rpath='$ORIGIN'
+In order to view dependency of executable on shared library:
+  $ readelf -d hi1 | grep NEEDED
+  $ readelf -d hi1 | grep RPATH
+
+2.11 Review of file types
+* source files .c .cpp
+* header files .h .hpp
+* object file .o .obj
+* executable (.exe with Windows)
+* static libraries .a (.lib with MS tools)
+* shared libraries .so .dylib on OSX .dll on Windows
+
+2.12 Build system shell script
+* build.sh always run all commands.
+* no concurrency.
+* no partial builds.
+* no incremental rebuild.
+* no scaling.
+* rarely used in practice.
+
+3.1 Build dependencies
+Visual Studio handles dependencies with its own manager, which is a completely different system.
+The diagram is a directed graph.
+
+3.2 Makefile
+Makefile cannot start each line with space, only tab can be used at the beginning of each line.
+A Makefile expresses build dependencies.
+  $ all: hi1 hi2
+  $ hi1: hi1.o libhello.so
+  $ 	 cc hi1.o libhello.so -o  hi1 -Wl,-rpath='$$ORIGIN'
+  $ hi1.o: hi1.c
+  $ 	 cc -c hi1.c -o hi1.o
+  $ libhello.so: hello1.o hello2.o
+  $	 cc -shared -o libhello.so hello1.o hello2.o
+  $ hello1.o: hello1.c
+  $ 	 cc -fPIC -c hello1.c -o hello1.o
+
+3.3 Run Make Tool
+The make tool checks timestamps, follows dependencies.
+
+3.4 Implicit Dependencies
+Commands:
+  $ grep hello.h *.c
+  $ gcc -MM hello1.c -MT hello1.o
+  $ touch hello.h // change the time on it
+
+3.5 Makefile: implicit dependencies
+
+3.6 Build system: Make
+Features
+* efficient and concurrent builds and rebuild.
+Limitation
+* hard to maintain implicit dependencies
+* platfor and tool specific tables of command
+* need manual rules for install and clean operation
+* not reusable with IDEs like Visual Studio and Xcode
+
+3.7 MSBuild
+
+3.8 Example Build System
+* Make: Canonical dependency-based build system
+* Ninja
+* MSBuild
+* Waf, Scons
+
+4.1 Build system generators
+
+4.2 CMake
+* created by Kitware in 2000 to support cross-platform builds for the insight toolkit.
+* it is generalized incrementally over time.
+* noe de-facto standard for cross-platform C, C++, and Fortran projects.
+
+4.3 CMake Example Code
+  $ cmake_minimum_required(VERSION 3.0)
+  $ project(Hello C)
+  $ add_library(hello SHARED hello1.c hello2.c hello.h)
+  $ add_executable(hi1 hi1.c)
+  $ target_link_libraries(hi1 hello)
+  $ add_executable(hi2 hi2.c)
+  $ target_link_libraries(hi2 hello)
+
+4.4 Running CMake
+Make an out-of-source build directory and run cmake tool.
+  $ mkdir build && cd build
+  $ cmake ../
+Then, we run make:
+  $ make
+Finally it is finished and we can inspect the results.
+
+4.5 CMake-generated Makefiles
+* maintain pristine source with out-of-source builds.
+* display description of each step with progress percentage.
+* provides rules for install and clean operations.
+* handle implicit dependencies automatically.
+* use platform and tool-specific commands.
+
+4.6 CMake GUI
+vVisual Studio compiler
+
+4.8 CMake syntax primer
+* refer to cmake-language(7) manual
+2019/6/25 Lecture 11
+
+Test this Friday 6/28
+
+Project pitch slide presentation
+1. Peaceful City project (professor Turner)
+2. Open Book project (Shail)
+   replacement to textbooks & ebooks
+   combination of markdown and latex
+   https://www.github.com/openbook-project/
+3. Git Matched project
+   a dating app for GitHub users
+   speed dating
+4. Open AI Gym project (Jack Garbus)
+   reinforcement learning
+   machine learning algorithm
+   design the simulation
+   gym is the environment
+   multi-agent interaction
+5. Mozilla's Open Source Student network project (Hanna)
+   OSSN is a welcoming community
+   HTML, python, shell
+   17.2 GB on hard drive / 2 hour installation
+   Mozilla IRC
+   RPI Machines Map (Hanna) a RCOS project.
+   mostly in JavaScript
+6. RISC V (James Berry)
+   open source hardware ISA
+   reduced instruction set computer
+7. Folsom Library (FLOM on RCOS)
+   Python
+   grant from library to implement
+8. Shuttle Tracker (Evan)
+   Go, Vue.js, PostgreSQL
+   documentation urgently needed
+9. Magic Voicing (Victor)
+   play chords
+   learn Jazz piano
+   mean stack
+10. NoTex (jputlock)
+    lightweight Tex editor for math and CS students
+    inline TeX rendering
+    C++
+    blessed repository structures
+    built-in model creators?
+11. Forge
+    collaborative design community
+
+https://www.github.com/wtg/shuttletracker
+
+Before the summer break, go through the repository and learn Go/Vue/PostgreSQL.
+brand new experience!
+
+frontend: javascript
+backend: go, postgre
+
+ultimate goal: parking transporation.
+
+stack: bus
+go to database and work on postgre.
+
+GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+
+short term is to get a wiki page.
+
+Documentation!!!!
+lecture 13 on 2019/7/9 Monday
+
+Virtualization and Containers
+
+about project
+* define milestone clearly
+* work towards it
+
+Lots of reading materials
+* oracle virtualbox VM
+* using virtual machines and docker
+
+Virtualization: virtual computer hardware platforms, storage devices, and computer network resources.
+
+1. Virtual Machines: software to allow a piece of hardware to run multiple operating system images at the same time.
+   e.g. VirtualBox
+2. Containers: a lightweight, stand-alone, executable package of a piece of software that includes everything needed to run it.
+   e.g. Docker
+
+Virtual machine:
+* a software layer (hypervisor) emulates the underlying hardware
+* an additional operating system runs on the virtual hardware
+* user interacts with the virtualization layer as if it were the underlying machine
+
+Advantages of virtual machine:
+* shared resources on memory, disk, network bandwidth
+* better resource utilization
+* running in isolated environments (better security)
+* the same hardware can run multiple operating systems
+* entire environment can be distributed
+  * less time on setting up environments
+  * less confusion about versions or compatibility
+* machine states can be checkpointed
+  * rapid return of services when hardware goes down
+  * can be migrated to a more or less powerful machines as needed
+
+Disadvantages of virtual machine:
+* poor planning and multiple VMs can drown a machine
+* the same hardware canc run multiple operating systems
+  * may require multiple licenses
+  * a problem with one set of hardware can affect hundreds of VMs
+* checkpoint files can be huge
+* an entire environment can be distributed
+  * Guest OS <-> hypervisor <-> native OS
+    performance is impacted
+  * entire guest environment
+
+Virtualization and the Cloud
+* easily add VMs or migrate to more/less powerful VMs
+* performance can be different on
+  * different systems
+  * different clusters
+  * different locations
+
+Example: VA scheduling competition
+* scheduler for Electronic Health Recorder (EHR) system
+* contestants were each given a VM with access to nominal patient and a version of a running VISTA EHR
+
+|^_^_^_V_i_r_t_u_a_l_B_o_x_^_^_^|
+VirtualBox is supported by Oracle.
+Licensing: GNU general public license (GPL) version 2
+source: svn co https://www.virtualbox.org/svn/vbox/trunk vbox
+Contributing information: contributor's agreement (CA) or MIT license.
+Running on: Windows, Linux, Macintosh, and Solaris, ...
+Licensing: VirtualBox is open source, but you will need permission for any guest operating system.
+  	   Windows requries appropriate licensing.
+
+* The image can be launched using virtualbox program.
+  * it gives a windows where the entire guest operating system can be accessed.
+* allow you to stop and checkpoint (save) the current state
+* be careful provisioning the image:
+  * trade-off between image capabilities and VM compactness
+  * changing size is hard
+
+Container
+A container image is a lightweight, stand-alone, executable package of a piece of software that includes everything needed to run it: code, runtime, system tools, system libraries, and settings.
+Abstraction is to the appilcation layer instead of the hardware layer.
+* The application layer interacts directly with a Container layer.
+  * no guest OS layer
+  * containers share the OS kernel
+* container are stateless and use the existing system resources to store data and state
+
+Advantages of container:
+* solve the issues of VMs:
+  1. large image sizes
+  2. high latency
+  3. reduced performance
+* by linking directly to the host kernel
+
+Disadvantages of container:
+* some are built from the bottom up, therefore you need to install/configure everything you want to use in your container.
+
++--------+
+| Docker |
++--------+
+
+(lab on Friday is on Docker, must walk through Docker tutorial ahead of time)
+
+Spawn a container by running an image:
+  $ docker run -it docker/whalesay
+  $ docker ps
+    ---> telling what images are currently running
+
+You can create new images by:
+1. create a DockerFile to define your image
+2. run a docker build to turn your configuration into an image
+3. run just like a pre-canned image
+4. once built, it will appear when you run
+   $ docker images
+5. altenatively, you can use yaml file to define multiple images that work together to create a system
+
+Some commands:
+  $ docker
+  $ docker container --help
+  $ docker --version
+  $ docker container ls --all
+
+At the end of the class, professor went through the tutorials from step 1 to 3.
+
+Commit 3 hours on INCA by Wednesday.
+OSS lecture 15 on 7/16, Monday
+
+lab 6 example 2 solved:rocketchat version problem on Mongo
+TOPIC: open source in scientific computation
+
+page 2: learning objectives
+page 3: reading list (2 link)
+    sagemath
+    pymunk (first page)
+page 4: two axes
+    heavy lifting backend computation
+    higher-level language wrappers for rapid development
+page 5: backend computations
+    usually written in C, C++, Fortran
+    use extensive well developed/researched library packages
+    (access to the repository)
+    have experts in specific discipline
+    will have support for parallelism
+page 6: backend computation
+    test the algorithm! before the full fledged implementation.
+    multidimensional array and double precision used extensively.
+    https://open surg sim
+    https://Eigen is a C++ template library for linear algebra
+    https://ITK: insight segmentation and registration toolkit
+    3d slicer: open source software platform for medical image informatics, image processing, and three-dimensional visualization that built on ITK.
+page 7: applications
+    genomics and drugs simulation
+    image processing applications
+page 8:
+page 9: GLPK (for linear programming)
+page 10: VTK
+    VLSI design: spice (circuit simulation)
+page 11: Python
+    pypy mplotlib cpython numpy pygame python notebook
+    networkx - graph/network manipulations
+    biopython
+page 12: Other language
+    Julia - high-performance numerical and scientific computing
+    R - statistical computing data science
+    Java - cytospace
+page 13: go into sagemath.org
+    open source alternative to Maple and Mathematica
+    output-console.pdf
+    cocalc for business model
+
+warm exercise 1
+    pygame @ nerdparadise
+warm exercise 2
+    angrybird for python
+
+early release
+lecture 16 (7/19) lab on scientific computing
+
+debate on next Tuesday
+argument: positive
+statement: MongoDB make the correct on balance.
+
+project update presentation on next Friday/Tuesday
+lecture on 7/23, Statiscal Computation and Open Source
+
+Debate over MongoDB / presentation on Friday and next Tuesday
+
+AGPL: composite open source
+change the definition of OSI license spirit.
+open to redistribution/modification
+AWS/...
+OSI 9: license must not restrict other software
+Users may turn to other cloud services.
+SSPL (for public services, either pay license money or release the stack)
+vagueness in SSPL (server side public license)
+AWS uses DocumentDB (based on old version of MongoDB)
+MongoDB is extremely well-known.
+COMPLEX ISSUE: making profit
+
+PRO OPINIONS:
+1. protect the OS community from the abuse from cloud service vendor
+2. make more money to invest into 
+   The database software company reported an adjusted loss of 22 cents a share on revenue of $89.4 million.
+
+
++----------------------------------------+
+| Open Source in Statistical Computation |
++----------------------------------------+
+
+Computational paradigms: Map-Reduce (Hadoop - Apache 2.0), cloud storage, and data storage technology.
+Story@NY cancer statistics (lung cancer, radioactive scan)
+Data needs to be analyzed before further computation.
+Some computational principles involve statistical computation (monte carlo)
+
+COmputational languages for statistical computing
+SPSS, SAS -> proprietary
+R (primarily GPL 2), RStudio (AGPL v3)
+SciPy (BSD 3-clause), Panda (BSD)
+
+R and RStudio
+* open source
+* lots of math and statistical packages available
+* integrated IDE
+* plotting package
+* a large number of data sets available@R
+* literate programming - Shiny
+Drawback
+* new programming language and syntax
+* all data are stored in memory
+* new strategy has to be adopted if the data does not fit the memory
+* R is not a general purpose programming language
+
+Data Science Question
+* level 1
+  * develop expectation
+  * collect data
+  * match expectations with data
+* level 2
+  * stating the question
+  * exploratory data analytics
+  * model building
+  * interpret
+  * communicate
+
+Caveat
+Tuckey's quotation
+
+lab [18] on Friday, 7/26
+
+project interim report: No.7
+7/26 lab on statistical computing
+  part 5 is no-op
+  part 1 is also no-op (read in through material)
+lecture 19 on 2019, 7/30 (Tuesday)
+
+lecture on TensorFlow + 12 interim reports
+
+TensorFlow Guide (online website)
+TensorFlow is an end-to-end open source platform for machine learning. It is a high performance numerical computation tool. It has strong supports for deep learning and machine learning. It is widely used around the world.
+TensorFlow is permissively licensed under Apache-2.0.
+It is a true open source project.
+
+***************Basics***************
+Installations
+* virtual environment
+* native pip
+* docker
+  docker run -it -p 8888:8888 tensorflow/tensorflow
+Practice on Docker
+  use python2.7
+  sess = tensorflow.Session( ... )
+TensorFlow has construction phase and execution phase.
+Graph for computation.
+
+Deep learning
+* similar to biological nervous system
+* train artificial neural network to transofrm an input into a desired output
+
+Neural Network
+lecture 21 on Tuesday 8/6
+
+* next Friday 4pm should be the final deadline for project.
+* today is on testing and continuous integration.
+* On Friday there is quiz2.
+* can take a look on the lab of testing.
+
++-------------------+
+|      TESTING      |
++-------------------+
+| 2019/8/6, Tuesday |
++-------------------+
+
+testing and continuous integration
+* reading material
+  * unittest introduction
+  * docktest introduction
+  (python environment)
+* testing
+  * testing of system
+  * testing of code
+* purpose
+  * software quality control / software quality assurance
+  * validation
+  * verification - specification is implemented
+  * avoid debugging
+Testing of code
+  * black box
+  * gray box
+  * white box (code coverage)
+Types of tests
+  * smoke test - non-extensive, most crucial functions of a program work
+  * functional test - done by QA to test functionality
+  * unit test
+  * regression test - change in code does not affect other parts
+Why unit test
+  * increase developer confidence
+  * avoid regression
+  * encourage maximal modularity and minimal inteface
+When unit test
+  * always write tests first
+  * before and after refactoring
+  * before debugging
+Terminology
+  * error
+  * fault is manifestation of error in the code
+  * failure is incorrrect output behavior that is caused by executing a fault
+  * testing ===> discover failures
+fault -> hiding in rarely executed portions of code
+      -> full code/branch coverage is virtually impossible for large project
+looking for fault!
+example of gcd(a, b) program (edge cases, specs)
+test coverage
+  * path
+  * loops and conditionals
+  * statement coverage
+  * branch coverage (hard to fully covered)
+  * condition coverage
+Control Flow Graph (CFG)
+example of binary search (input/output specs)
+Language supported for testing
+  * ctest
+  * PyUnit, unittest
+  * JUnit
+example of unittest in Python
+
++-------------------+
+|    INTEGRATION    |
++-------------------+
+| 2019/8/6, Tuesday |
++-------------------+
+
+Reading material: ctest
+Integration
+  * system integration
+  * hardware integration
+  * software integration
+why? cascade of interdependencies.
+types of integration
+  * phased integration
+  * incremental integration
+Benefits of incremental
+  * errors easier to isolate, find, and fix
+  * system is always in a relatively working state
+Drawbacks of incremental
+  * stub!
+  * with many developers, incremental integration may be "big-bang" integration
+types of integration
+  * top-down integration
+  * bottom-up integration
+  * sandwich integration: connect top level UI with crucial bottom-level classes (add middle layers later as needed)
+  * continuous integration: maintain a single source repository (automate the build, make your build self testing, everyone commits to mail line everyday)
+daily build
+automated test
+mock object
+software support
+  * cmake with ctest
+  * travis ci - github dual license
+  * jenkins ci open source
+  * circle ci
+vtk.org - look for info in dashboard
+  * continuous integration
+  * continuous build
+CSCI 4961 Open Source Software, 2
++-----------------------------+ 0
+| Quiz 1 on 6/28/2019, Friday | 1
++-----------------------------+ 9
+| Document: master review     | S
+| Date created: 6/25, 6:25 PM | U
+| Last modified: 6/25         | M
+| Purpose: overall review for | M
+|   midterm material and ref! | E
++-----------------------------+ R
+
+Topics:
+  1. intro to open source (5/21)
+  2. git introduction (5/28)
+  3. documentation and community (6/4)
+  4. licensing (6/11)
+  5. build system (6/18)
+
+Concepts in topic 1: intro to open source
+  * 386 BSD -> NetBSD, FreeBSD, OpenBSD
+  * why open source?
+  * why not open source?
+  * cathedral model (commercial world)
+  * bazaar model (linux world)
+  * software management five functions
+Concepts in topic 2: git
+  * git commands
+    * git diff (to see the speciffic local changes to tracked files)
+    * git log --graph --pretty=oneline --abbrev-commit
+    * git diff --cached
+    * git add -u (add only the updated, previously-commited files)
+    * git branch --all
+    * git checkout <branch>
+    * git merge <branch>
+Concepts in topic 3: documentation and community
+  * purpose of documentation
+  * importance of documentation
+  * markdown/latex syntax
+  * literate programming
+  * importance of community
+  * essential tools for running communities
+  * sustainable open source
+  * open/proprietary
+Concepts in topic 4: licensing
+  * open source license
+  * Open Source Initiative
+  * open source definitation (OSD, 10 rules)
+  * fundamentals of intellectual property (IP)
+  * license -> copyright, patent, trademark
+  * copyleft & permissive license
+    * copyleft: General Public License (GPL), Affero GPL (AGPL)
+    * lesser: Eclipse (EPL), Mozilla (MPL), Lesser GPL (LGPL)
+    * permissive: Apache, BSD, MIT
+  * derivative work
+Concepts in topic 5: build system
+  * static/sharing library
+  * make -> Makefile
+  * cmake ../ -> CMakeLists.txt
+
