@@ -1,0 +1,549 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Virtualization and Containers &#8212; Sample Slides  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="virtualization-and-containers">
+<h1>Virtualization and Containers<a class="headerlink" href="#virtualization-and-containers" title="Permalink to this headline">¶</a></h1>
+<p>Open Source Software</p>
+<p>Wesley Turner</p>
+<p>Rensselaer Polytechnic Institute</p>
+<p>Department of Computer Science</p>
+<p>Licensed under: CC-BY-SA 4.0 <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0/">https://creativecommons.org/licenses/by-sa/4.0/</a></p>
+<div class="section" id="reading-material">
+<h2>Reading Material<a class="headerlink" href="#reading-material" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Reading Material<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Virtualization</dt><dd><ul>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Virtualization">https://en.wikipedia.org/wiki/Virtualization</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Hardware_virtualization">https://en.wikipedia.org/wiki/Hardware_virtualization</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Using Virtual Machines and Docker:</dt><dd><ul>
+<li><p><a class="reference external" href="https://goo.gl/sRVT7o">https://goo.gl/sRVT7o</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Oracle VirtualBox VM (Reference)</dt><dd><ul>
+<li><p><a class="reference external" href="https://www.virtualbox.org/manual/ch01.html#virt-why-useful">https://www.virtualbox.org/manual/ch01.html#virt-why-useful</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-is-virtualization">
+<h3>What is Virtualization?<a class="headerlink" href="#what-is-virtualization" title="Permalink to this headline">¶</a></h3>
+<blockquote class="pull-quote">
+<div><p>In computing, virtualization refers to the act of creating a virtual (rather than actual) version of something, including virtual computer hardware platforms, storage devices, and computer network resources. <a class="footnote-reference brackets" href="#id3" id="id2">1</a></p>
+</div></blockquote>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/Virtualization">https://en.wikipedia.org/wiki/Virtualization</a></p>
+</dd>
+</dl>
+<p>We will consider two main types:</p>
+<ul class="simple">
+<li><p>Virtual Machines</p>
+<ul>
+<li><p>Software to allow a piece of hardware to run multiple operating system images at the same time</p></li>
+<li><p>Eg. <em>VirtualBox</em></p></li>
+</ul>
+</li>
+<li><p>Containers</p>
+<ul>
+<li><p>A lightweight, stand-alone, executable package of a piece of software that includes everything needed to run it</p></li>
+<li><p>Eg. <em>Docker</em></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="virtual-machines">
+<h2>Virtual Machines<a class="headerlink" href="#virtual-machines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="concept">
+<h3>Concept<a class="headerlink" href="#concept" title="Permalink to this headline">¶</a></h3>
+<p>In a Virtual Machine:</p>
+<ul class="simple">
+<li><p>A software layer <em>(hypervisor)</em> emulates the underlying hardware</p></li>
+<li><p>An additional operating system runs on the virtual hardware</p></li>
+<li><p>Users interact with the virtualization layer as if it were the underlying machine</p></li>
+</ul>
+</div>
+<div class="section" id="architecture">
+<h3>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="_images/container-vm-whatcontainer_2.png"><img alt="_images/container-vm-whatcontainer_2.png" src="_images/container-vm-whatcontainer_2.png" style="width: 599.0px; height: 478.5px;" /></a>
+<p><a class="reference external" href="https://dockr.ly/2S0D5Fw">https://dockr.ly/2S0D5Fw</a></p>
+</div>
+<div class="section" id="advantages">
+<h3>Advantages<a class="headerlink" href="#advantages" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Virtual Machines share resources</p>
+<ul>
+<li><p>Memory, disk, network bandwidth</p></li>
+<li><p>Better resource utilization</p></li>
+</ul>
+</li>
+<li><p>They run in isolated environments</p>
+<ul>
+<li><p>Better security</p></li>
+</ul>
+</li>
+<li><p>The same hardware can run multiple operating systems</p>
+<ul>
+<li><p>Eg. Windows and Linux can coexist on the same machine at the same time</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>An entire environment can be distributed</p>
+<ul>
+<li><p>Less time wasted setting up environments</p></li>
+<li><p>Less confusion about versions or compatibilities</p></li>
+</ul>
+</li>
+<li><p>Machine states can be checkpointed</p>
+<ul>
+<li><p>Can be migrated to a more or less powerful machine as needed</p></li>
+<li><p>Rapid return of services when hardware goes down</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="disadvantages">
+<h3>Disadvantages<a class="headerlink" href="#disadvantages" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Virtual Machines share resources</p>
+<ul>
+<li><p>Memory, disk, network bandwidth</p></li>
+<li><p>Poor planning and multiple VMs can drown a machine</p></li>
+</ul>
+</li>
+<li><p>The same hardware can run multiple operating systems</p>
+<ul>
+<li><p>May require multiple licenses</p></li>
+<li><p>A problem with one set of hardware can affect hundreds of VMs</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>An entire environment can be distributed</p>
+<ul>
+<li><p>The entire guest environment – including the entire guest OS, disk and memory – needs to be represented in the VM file</p>
+<ul>
+<li><p>VMs are large</p></li>
+</ul>
+</li>
+<li><p>Each environment communicates to resources through the hypervisor</p>
+<ul>
+<li><p>Guest OS &lt;-&gt; hypervisor &lt;-&gt; native OS</p>
+<ul>
+<li><p>Can significantly impact performance</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Machine states can be checkpointed</p>
+<ul>
+<li><p>Checkpoint files can be huge</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="virtualization-and-the-cloud">
+<h3>Virtualization and the Cloud<a class="headerlink" href="#virtualization-and-the-cloud" title="Permalink to this headline">¶</a></h3>
+<p>Virtual machine are the <em>de facto</em> way of using cloud compute resources</p>
+<ul class="simple">
+<li><p><strong>You</strong> are protected by the virtual environment by interference from other VMs</p></li>
+<li><p>Other VMs, and the provider, are protected from <strong>you</strong> as well</p></li>
+<li><p>You can easily add VMs or migrate to more/less powerful VMs as your needs change</p></li>
+</ul>
+<p>You do not necessarily know what hardware you are running on</p>
+<ul class="simple">
+<li><p>Performance can be different on different systems</p></li>
+<li><p>Performance can be different on different clusters</p></li>
+<li><p>Performance can be different in different locations (proximity sometimes matters)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="an-example">
+<h2>An Example<a class="headerlink" href="#an-example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-va-scheduling-competition">
+<h3>The VA Scheduling Competition<a class="headerlink" href="#the-va-scheduling-competition" title="Permalink to this headline">¶</a></h3>
+<p>An interesting cloud use for Virtual Machines: <a class="reference external" href="https://vascheduling.devpost.com/">https://vascheduling.devpost.com/</a></p>
+<ul class="simple">
+<li><p>The VA was investigating a new scheduler for their Electronic Health Recorder (EHR) system</p>
+<ul>
+<li><p>Contestants were each given a Virtual Machine with access to nominal (simulated) patient data and a version of a running VISTA EHR</p>
+<ul>
+<li><p>The machines ran in the cloud on Rackspace <a class="reference external" href="https://www.rackspace.com/">https://www.rackspace.com/</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>The VA scheduler (continued):</p>
+<ul>
+<li><p>They developed their scheduling solution on the system</p></li>
+<li><p>At the end of the competition, the machines were checkpointed and submitted to OSHERA (Open Source Electronic Health Record Agent) for evaluation</p></li>
+</ul>
+</li>
+<li><p>Three awards were given:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://devpost.com/software/health-etime">https://devpost.com/software/health-etime</a></p></li>
+<li><p><a class="reference external" href="https://devpost.com/software/oh-scheduler">https://devpost.com/software/oh-scheduler</a></p></li>
+<li><p><a class="reference external" href="https://devpost.com/software/hp-open-community-team-submission">https://devpost.com/software/hp-open-community-team-submission</a></p></li>
+</ol>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="virtualbox">
+<h2>VirtualBox<a class="headerlink" href="#virtualbox" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>VirtualBox<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<img alt="_images/virtualbox.png" src="_images/virtualbox.png" />
+<p><a class="reference external" href="https://www.virtualbox.org/">https://www.virtualbox.org/</a></p>
+<p>Virtualbox is supported by Oracle and comes with a full suite of documentation and other useful information</p>
+<ul class="simple">
+<li><p>Licensing:</p>
+<ul>
+<li><p>GNU General Public License (GPL) version 2</p></li>
+</ul>
+</li>
+<li><p>Documents:</p>
+<ul>
+<li><p><a class="reference external" href="https://www.virtualbox.org/manual/UserManual.html">https://www.virtualbox.org/manual/UserManual.html</a></p></li>
+</ul>
+</li>
+<li><p>Getting VirtualBox:</p>
+<ul>
+<li><p><a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">https://www.virtualbox.org/wiki/Downloads</a></p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Source</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">svn co https://www.virtualbox.org/svn/vbox/trunk vbox</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Contributing</p>
+<ul>
+<li><p><a class="reference external" href="https://www.virtualbox.org/wiki/Contributor_information">https://www.virtualbox.org/wiki/Contributor_information</a></p></li>
+</ul>
+</li>
+<li><p>Community</p>
+<ul>
+<li><p><a class="reference external" href="https://www.virtualbox.org/wiki/Community">https://www.virtualbox.org/wiki/Community</a></p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Runs on:</p>
+<ul>
+<li><p>Windows, Linux, Macintosh, and Solaris</p></li>
+</ul>
+</li>
+<li><p>Guest OS:</p>
+<ul>
+<li><p>Windows (NT 4.0, 2000, XP, Server 2003, Vista, Windows 7, Windows 8, Windows 10)</p></li>
+<li><p>DOS/Windows 3.x</p></li>
+<li><p>Linux (2.4, 2.6, 3.x and 4.x)</p></li>
+<li><p>Solaris</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Guest OS continued:</p>
+<ul>
+<li><p>OpenSolaris</p></li>
+<li><p>OS/2</p></li>
+<li><p>OpenBSD</p></li>
+<li><p>Other … <a class="reference external" href="https://www.virtualbox.org/wiki/Guest_OSes">https://www.virtualbox.org/wiki/Guest_OSes</a></p></li>
+</ul>
+</li>
+<li><p>Licensing:</p>
+<ul>
+<li><p>VirtualBox is Open Source, but you still need permission for any guest operating system you use</p></li>
+<li><p>In particular, Windows requires appropriate licensing</p></li>
+</ul>
+</li>
+</ul>
+<p>A simple interface can be used to define your virtual machine</p>
+<a class="reference internal image-reference" href="_images/VBInterface.png"><img alt="_images/VBInterface.png" src="_images/VBInterface.png" style="width: 616.0px; height: 457.6px;" /></a>
+<ul class="simple">
+<li><p>The image can then be launched using the Virtualbox program</p>
+<ul>
+<li><p>It gives a window where the entire guest operating system can be accessed</p></li>
+</ul>
+</li>
+<li><p>Other buttons allow you to stop and checkpoint (save) the current state</p></li>
+</ul>
+<ul class="simple">
+<li><p>Be careful provisioning your image:</p>
+<ul>
+<li><p>There is an inherent trade-off between image capabilities (size/memory) and VM compactness</p></li>
+<li><p>That said, changing the size can be a pain</p></li>
+<li><p>In general, you want to use the smallest VM that meets your needs</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="containers">
+<h2>Containers<a class="headerlink" href="#containers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h3>Concept<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<blockquote class="pull-quote">
+<div><p>A container image is a lightweight, stand-alone, executable package of a piece of software that includes everything needed to run it: code, runtime, system tools, system libraries, settings. <a class="footnote-reference brackets" href="#id7" id="id6">3</a></p>
+</div></blockquote>
+<dl class="footnote brackets">
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id6">3</a></span></dt>
+<dd><p><a class="reference external" href="https://goo.gl/3oDqKD">https://goo.gl/3oDqKD</a></p>
+</dd>
+</dl>
+<p>In a Container, the abstraction is to the application layer instead of the hardware layer:</p>
+<ul class="simple">
+<li><p>The application layer interacts directly with a <em>Container</em> layer</p>
+<ul>
+<li><p>There is no Guest OS layer</p></li>
+<li><p>The guest layer capabilities come in as shared services in the docker layer</p></li>
+<li><p>The containers share the operating system kernel</p></li>
+</ul>
+</li>
+<li><p>Each container runs as an application in user space</p></li>
+<li><p>Containers are stateless and use the existing system resources to store data and state</p></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3>Advantages<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Containers were designed to solve some of the issues of VMs. Paticularly,</p>
+<ul>
+<li><p>Large image sizes</p></li>
+<li><p>High latency</p></li>
+<li><p>Reduced performance</p></li>
+</ul>
+</li>
+<li><p>By linking directly to the host kernel, containers:</p>
+<ul>
+<li><p>Can have a reduced size</p></li>
+<li><p>Can share resources</p></li>
+<li><p>Can have improved performance</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h3>Disadvantages<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>Since containers are built from the bottom up, they can be very compact and light weight, but that means that you need to install/configure everything you want to use in your container.</p>
+</div>
+<div class="section" id="id10">
+<h3>Architecture<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<img alt="_images/ContainerVsVM.png" src="_images/ContainerVsVM.png" />
+<p><a class="reference external" href="https://www.docker.com/what-container#/virtual_machines">https://www.docker.com/what-container#/virtual_machines</a></p>
+</div>
+</div>
+<div class="section" id="docker">
+<h2>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="docker-images">
+<h3>Docker Images<a class="headerlink" href="#docker-images" title="Permalink to this headline">¶</a></h3>
+<p>Docker maintains a library of images that you can run, i.e.:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> docker images
+<span class="go">REPOSITORY          TAG       IMAGE ID     CREATED       SIZE</span>
+<span class="go">python              3.5       99034fcd3ca6 2 weeks ago   917MB</span>
+<span class="go">python              latest    746a826ed9d7 2 weeks ago   922MB</span>
+<span class="go">redis               latest    f06a5773f01e 2 weeks ago   83.4MB</span>
+<span class="go">node                8         ed145ef978c4 2 weeks ago   673MB</span>
+<span class="go">postgres            9.5       a4da5bcea663 2 weeks ago   234MB</span>
+<span class="go">mongo               3.2       386ac407ef9f 5 weeks ago   300MB</span>
+<span class="go">hello-world         latest    e38bc07ac18e 3 months ago  1.85kB</span>
+<span class="go">ubuntu              16.04     20c44cd7596f 8 months ago  123MB</span>
+<span class="go">ubuntu              14.04     d6ed29ffda6b 8 months ago  221MB</span>
+<span class="go">fedora              latest    422dc563ca32 8 months ago  252MB</span>
+<span class="go">mysql               latest    5709795eeffa 9 months ago  408MB</span>
+<span class="go">ubuntu              latest    dd6f76d9cc90 9 months ago  122MB</span>
+<span class="go">node                7-alpine  4b72b56791f9 13 months ago 58.3MB</span>
+<span class="go">codenvy/ubuntu_jdk8 latest    4074bfc5705b 20 months ago 668MB</span>
+<span class="go">docker/whalesay     latest    6b362a9f73eb 3 years ago   247MB</span>
+</pre></div>
+</div>
+<p>You can spawn a container by running an image.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> docker run -it docker/whalesay
+<span class="gp">root@40aa8aadc15f:/cowsay#</span> cowsay squirt
+<span class="go"> ________</span>
+<span class="go">&lt; squirt &gt;</span>
+<span class="go"> --------</span>
+<span class="go">    \</span>
+<span class="go">     \</span>
+<span class="go">      \</span>
+<span class="gp">                    #</span><span class="c1">#        .</span>
+<span class="gp">              #</span><span class="c1"># ## ##       ==</span>
+<span class="gp">           #</span><span class="c1"># ## ## ##      ===</span>
+<span class="go">       /&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;___/ ===</span>
+<span class="go">  ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~</span>
+<span class="go">       \______ o          __/</span>
+<span class="go">        \    \        __/</span>
+<span class="go">          \____\______/</span>
+<span class="gp">root@40aa8aadc15f:/cowsay#</span> <span class="nb">exit</span>
+</pre></div>
+</div>
+<p>You can find out what images you have running with</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">Wesleys-MacBook-Pro:Virtualization_Lecture wes$</span> docker ps
+<span class="go">CONTAINER ID IMAGE    COMMAND     CREATED    STATUS    PORTS NAMES</span>
+<span class="go">eec278129a30 mongodev &quot;/bin/bash&quot; 5 days ago Up 5 days       zen_williams</span>
+</pre></div>
+</div>
+<p>You can create new images by:</p>
+<ol class="arabic simple">
+<li><p>Create a DockerFile to define your image</p></li>
+<li><p>Run a docker build to turn your configuration into an image</p></li>
+<li><p>Run just like a pre-canned image</p></li>
+<li><p>Once you have build a docker image, it will appear when you run <em>docker images</em></p></li>
+<li><p>Alternately, you can use a yaml file to define multiple images that work together to create a system</p></li>
+</ol>
+<p>We will explore all of these in the following example.</p>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="quick-cheat-sheet">
+<h3>Quick Cheat Sheet<a class="headerlink" href="#quick-cheat-sheet" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span><span class="c1"># List Docker CLI commands</span>
+<span class="go">docker</span>
+<span class="go">docker container --help</span>
+
+<span class="gp">#</span><span class="c1"># Display Docker version and info</span>
+<span class="go">docker --version</span>
+<span class="go">docker version</span>
+<span class="go">docker info</span>
+
+<span class="gp">#</span><span class="c1"># Execute Docker image</span>
+<span class="go">docker run hello-world</span>
+
+<span class="gp">#</span><span class="c1"># List Docker images</span>
+<span class="go">docker image ls</span>
+
+<span class="gp">#</span><span class="c1"># List Docker containers (running, all, all in quiet mode)</span>
+<span class="go">docker container ls</span>
+<span class="go">docker container ls --all</span>
+<span class="go">docker container ls -aq</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>Example<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>As a class exercise, we will run through steps 1-3 of the Docker Tutorial at: <a class="reference external" href="https://docs.docker.com/get-started/">https://docs.docker.com/get-started/</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="end">
+<h1>End<a class="headerlink" href="#end" title="Permalink to this headline">¶</a></h1>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Sample Slides</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
